@@ -189,9 +189,9 @@ const LoginScreen = () => {
           </form>
         )}
 
-        {view !== null && (
+{view !== null && (
           <div className="switch-container">
-            <p onClick={() => setView(null)}>
+            <p className="switch-link" onClick={() => setView(null)}>
               {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
             </p>
           </div>

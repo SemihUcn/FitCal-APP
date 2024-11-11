@@ -70,3 +70,14 @@
     height: auto;
     border-radius: 10px;
   }
+  .switch-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .switch-link:hover {
+    color: #0056b3;
+  }
+  
