@@ -1,0 +1,63 @@
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+  }
+  
+  .login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .app-icon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.sign-in {
+    background-color: #007bff;
+  }
+  
+  .btn.sign-up {
+    background-color: #00bcd4;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
