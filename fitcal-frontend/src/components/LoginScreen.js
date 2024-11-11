@@ -191,14 +191,16 @@ const LoginScreen = () => {
 
 {view !== null && (
           <div className="switch-container">
-            <p className="switch-link" onClick={() => setView(null)}>
-              {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
-            </p>
-          </div>
+          <p className="switch-link" onClick={() => setView(view === 'signUp' ? 'signIn' : 'signUp')}>
+            {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
+          </p>
+        </div>
         )}
       </div>
     </div>
   );
 };
+
+
 
 export default LoginScreen;
