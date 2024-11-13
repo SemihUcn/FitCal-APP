@@ -1,83 +1,124 @@
 .login-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f3f3f3;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+
+.login-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.app-icon img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.sign-in {
+  background-color: #007bff;
+}
+
+.btn.sign-up {
+  background-color: #00bcd4;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.switch-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.switch-link:hover {
+  color: #0056b3;
+}
+
+/* Yeni input stili */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Mobil uyumluluk iyileştirmeleri */
+@media (max-width: 600px) {
   .login-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
+    padding: 1.5rem;
   }
-  
-  .app-icon img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-  }
-  
-  h2 {
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  
-  p {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 1.5rem;
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
+
   .btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 0.8rem;
   }
-  
-  .btn.sign-in {
-    background-color: #007bff;
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="number"] {
+    padding: 0.6rem;
   }
-  
-  .btn.sign-up {
-    background-color: #00bcd4;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }
-  .image-container {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .login-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  .switch-link {
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-  }
-  
-  .switch-link:hover {
-    color: #0056b3;
-  }
-  
+}

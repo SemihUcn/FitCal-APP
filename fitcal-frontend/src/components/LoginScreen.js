@@ -4,6 +4,7 @@ import fitcalImage from '../assets/ana_giris_foto.jpg';
 
 const LoginScreen = () => {
   const [view, setView] = useState(null); // Kullanıcı Sign In veya Sign Up seçimi yapana kadar null
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Kullanıcı kimliği doğrulandığında true olacak
 
   // Form verileri için durum yönetimi
   const [formData, setFormData] = useState({
@@ -26,29 +27,9 @@ const LoginScreen = () => {
   };
 
   // Sign In butonuna basıldığında çağrılan işlev
-  const handleSignIn = async (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (response.ok) {
-        alert('Giriş başarılı!');
-        // Başarılı bir giriş sonrası yönlendirme yapabilirsiniz
-      } else {
-        alert('E-posta veya şifre hatalı!');
-      }
-    } catch (error) {
-      console.error('Giriş hatası:', error);
-    }
+    setIsAuthenticated(true); // Kullanıcıyı kimlik doğrulandı olarak işaretlemeden doğrudan giriş yap
   };
 
   // Sign Up butonuna basıldığında çağrılan işlev
@@ -83,19 +64,33 @@ const LoginScreen = () => {
     }
   };
 
+  if (isAuthenticated) {
+    // Giriş başarılıysa uygulamanın ana sayfasına yönlendirme (aşağıda 4 buton bulunan bir ekran gösteriyoruz)
+    return (
+      <div style={{ height: '100vh', backgroundColor: 'white', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center' }}>
+        <div style={{ marginBottom: '20px' }}>
+          <button style={{ margin: '10px', padding: '10px 20px' }}>Lionel Messi</button>
+          <button style={{ margin: '10px', padding: '10px 20px' }}>Cristiano Ronaldo</button>
+          <button style={{ margin: '10px', padding: '10px 20px' }}>Neymar Jr</button>
+          <button style={{ margin: '10px', padding: '10px 20px' }}>Kylian Mbappe</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="login-screen">
-    <div className="login-container">
-      <div className="image-container">
-        <img src={fitcalImage} alt="FitCal'a Hoşgeldiniz" className="login-image" />
-      </div>
-      <h2>FitCal'a Hoşgeldiniz</h2>
-      {view === null && (
-        <div className="button-container">
-          <button className="btn sign-in" onClick={() => setView('signIn')}>Sign In</button>
-          <button className="btn sign-up" onClick={() => setView('signUp')}>Sign Up</button>
+      <div className="login-container">
+        <div className="image-container">
+          <img src={fitcalImage} alt="FitCal'a Hoşgeldiniz" className="login-image" />
         </div>
-      )}
+        <h2>FitCal'a Hoşgeldiniz</h2>
+        {view === null && (
+          <div className="button-container">
+            <button className="btn sign-in" onClick={() => setView('signIn')}>Sign In</button>
+            <button className="btn sign-up" onClick={() => setView('signUp')}>Sign Up</button>
+          </div>
+        )}
 
         {view === 'signIn' && (
           <form onSubmit={handleSignIn}>
@@ -189,18 +184,16 @@ const LoginScreen = () => {
           </form>
         )}
 
-{view !== null && (
+        {view !== null && (
           <div className="switch-container">
-          <p className="switch-link" onClick={() => setView(view === 'signUp' ? 'signIn' : 'signUp')}>
-            {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
-          </p>
-        </div>
+            <p className="switch-link" onClick={() => setView(view === 'signUp' ? 'signIn' : 'signUp')}>
+              {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
+            </p>
+          </div>
         )}
       </div>
     </div>
   );
 };
-
-
 
 export default LoginScreen;
