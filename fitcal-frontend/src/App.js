@@ -1,5 +1,5 @@
-import React from 'react';
-import LoginScreen from './components/LoginScreen';
+import React from "react";
+import LoginScreen from "./components/LoginScreen";
 
 function App() {
   return (
