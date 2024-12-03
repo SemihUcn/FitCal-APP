@@ -20,6 +20,167 @@ const Header = () => (
   </div>
 );
 
+
+
+
+const CalendarModal = ({ onClose }) => {
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  const handleMonthChange = (direction) => {
+    let newMonth = currentMonth + direction;
+    let newYear = currentYear;
+    if (newMonth > 11) {
+      newMonth = 0;
+      newYear++;
+    } else if (newMonth < 0) {
+      newMonth = 11;
+      newYear--;
+    }
+    setCurrentMonth(newMonth);
+    setCurrentYear(newYear);
+  };
+
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+  const daysOfWeek = ['P', 'S', 'Ç', 'P', 'C', 'C', 'P'];
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <div style={{
+        width: '90%',
+        maxWidth: '500px',
+        backgroundColor: '#fff',
+        padding: '20px',
+        borderRadius: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        position: 'relative',
+      }}>
+        <button onClick={onClose} style={{
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          background: 'none',
+          border: 'none',
+          fontSize: '1.5rem',
+          cursor: 'pointer',
+        }}>✖</button>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <button onClick={() => handleMonthChange(-1)} style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '1.5rem',
+            color: '#007bff',
+            transition: 'color 0.3s ease',
+          }}>◀</button>
+          <h2 style={{ textAlign: 'center', color: '#007bff', fontWeight: 'bold', fontSize: '1.25rem' }}>{`${new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} ${currentYear}`}</h2>
+          <button onClick={() => handleMonthChange(1)} style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '1.5rem',
+            color: '#007bff',
+            transition: 'color 0.3s ease',
+          }}>▶</button>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px' }}>
+          {daysOfWeek.map((day, index) => (
+            <div key={index} style={{
+              padding: '10px',
+              textAlign: 'center',
+              fontWeight: 'bold',
+              color: '#007bff',
+            }}>{day}</div>
+          ))}
+          {[...Array(firstDay).keys()].map((_, index) => (
+            <div key={index} style={{ padding: '10px' }}></div>
+          ))}
+          {[...Array(daysInMonth).keys()].map((day) => (
+            <div key={day} style={{
+              padding: '10px',
+              backgroundColor: '#f3f3f3',
+              textAlign: 'center',
+              borderRadius: '5px',
+              boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+            }}>
+              {day + 1}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MealSearchPage = ({ mealType, onClose }) => {
+  const [mealSearchQuery, setMealSearchQuery] = useState('');
+
+  return (
+    <div style={{
+      height: '100vh',
+      backgroundColor: '#f9f9f9',
+      paddingTop: '80px',
+    }}>
+      <Header />
+      <div style={{
+        padding: '20px',
+        textAlign: 'center',
+      }}>
+        <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#007bff', fontWeight: 'bold' }}>{mealType === 'breakfast' ? 'Kahvaltı' : mealType === 'lunch' ? 'Öğle Yemeği' : mealType === 'dinner' ? 'Akşam Yemeği' : 'Aperatifler'}</h2>
+        <input
+          type="text"
+          placeholder="Yemek Ara..."
+          value={mealSearchQuery}
+          onChange={(e) => setMealSearchQuery(e.target.value)}
+          style={{
+            width: '80%',
+            padding: '15px',
+            marginBottom: '20px',
+            borderRadius: '8px',
+            border: '1px solid #ddd',
+            fontSize: '1rem',
+          }}
+        />
+        <div>
+          {['Elma', 'Tavuk Göğsü', 'Yoğurt', 'Salata', 'Yulaf']
+            .filter((meal) => meal.toLowerCase().includes(mealSearchQuery.toLowerCase()))
+            .map((meal) => (
+              <button
+                key={meal}
+                onClick={() => onClose(meal)}
+                style={{
+                  margin: '5px',
+                  padding: '10px 15px',
+                  borderRadius: '8px',
+                  backgroundColor: '#007bff',
+                  color: '#fff',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  transition: 'background-color 0.3s ease',
+                }}
+              >
+                {meal}
+              </button>
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const LoginScreen = () => {
   const [view, setView] = useState(null); // Kullanıcı Sign In veya Sign Up seçimi yapana kadar null
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Kullanıcı kimliği doğrulandığında true olacak
@@ -39,8 +200,7 @@ const LoginScreen = () => {
     dinner: [],
     snacks: [],
   });
-  const [showMealSelection, setShowMealSelection] = useState({ show: false, mealType: '' });
-  const [mealSearchQuery, setMealSearchQuery] = useState('');
+  const [showMealSearch, setShowMealSearch] = useState({ show: false, mealType: '' });
 
   // Form verileri için durum yönetimi
   const [formData, setFormData] = useState({
@@ -124,8 +284,7 @@ const LoginScreen = () => {
       ...prevMeals,
       [mealType]: [...prevMeals[mealType], meal],
     }));
-    setShowMealSelection({ show: false, mealType: '' });
-    setMealSearchQuery('');
+    setShowMealSearch({ show: false, mealType: '' });
   };
 
   const renderBottomNav = () => (
@@ -211,7 +370,7 @@ const LoginScreen = () => {
           color: '#007bff',
           transition: 'color 0.3s ease',
         }}>▶</button>
-        <button onClick={() => setShowFullCalendar(!showFullCalendar)} style={{
+        <button onClick={() => setShowFullCalendar(true)} style={{
           background: 'none',
           border: 'none',
           cursor: 'pointer',
@@ -220,7 +379,7 @@ const LoginScreen = () => {
           transition: 'color 0.3s ease',
         }}>📅</button>
       </div>
-      {showFullCalendar && <div style={{ padding: '10px', backgroundColor: '#f9f9f9', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>Tüm Takvim Gösterimi (Geçici Placeholder)</div>}
+      {showFullCalendar && <CalendarModal onClose={() => setShowFullCalendar(false)} />}
       <div style={{ marginTop: '20px' }}>
         {['breakfast', 'lunch', 'dinner', 'snacks'].map((mealType) => (
           <div key={mealType} style={{
@@ -239,7 +398,7 @@ const LoginScreen = () => {
               {mealType === 'dinner' && 'Akşam Yemeği'}
               {mealType === 'snacks' && 'Aperatifler'}
             </div>
-            <button onClick={() => setShowMealSelection({ show: true, mealType })} style={{
+            <button onClick={() => setShowMealSearch({ show: true, mealType })} style={{
               background: '#007bff',
               border: 'none',
               color: '#fff',
@@ -264,66 +423,11 @@ const LoginScreen = () => {
           )
         ))}
       </div>
-      {showMealSelection.show && (
-        <div style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: '#ffffff',
-          padding: '20px',
-          boxShadow: '0px -1px 5px rgba(0, 0, 0, 0.1)',
-          borderTopLeftRadius: '15px',
-          borderTopRightRadius: '15px',
-        }}>
-          <h4 style={{ marginBottom: '15px', fontSize: '1.2rem', fontWeight: 'bold', color: '#333' }}>Yemek Seçin:</h4>
-          <input
-            type="text"
-            placeholder="Yemek Ara..."
-            value={mealSearchQuery}
-            onChange={(e) => setMealSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '12px',
-              marginBottom: '15px',
-              borderRadius: '8px',
-              border: '1px solid #ddd',
-              fontSize: '1rem',
-            }}
-          />
-          {['Elma', 'Tavuk Göğsü', 'Yoğurt', 'Salata', 'Yulaf']
-            .filter((meal) => meal.toLowerCase().includes(mealSearchQuery.toLowerCase()))
-            .map((meal) => (
-              <button
-                key={meal}
-                onClick={() => handleMealSelection(showMealSelection.mealType, meal)}
-                style={{
-                  margin: '5px',
-                  padding: '10px 15px',
-                  borderRadius: '8px',
-                  backgroundColor: '#007bff',
-                  color: '#fff',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '1rem',
-                  transition: 'background-color 0.3s ease',
-                }}
-              >
-                {meal}
-              </button>
-            ))}
-          <button onClick={() => setShowMealSelection({ show: false, mealType: '' })} style={{
-            display: 'block',
-            marginTop: '15px',
-            padding: '12px',
-            backgroundColor: '#ccc',
-            color: '#333',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            fontSize: '1rem',
-          }}>Kapat</button>
-        </div>
+      {showMealSearch.show && (
+        <MealSearchPage
+          mealType={showMealSearch.mealType}
+          onClose={(meal) => handleMealSelection(showMealSearch.mealType, meal)}
+        />
       )}
     </div>
   );
