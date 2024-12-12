@@ -147,3 +147,89 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #333;
 }
+/* Arama Alanı Konteyner */
+.meal-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0; /* Tablo ile butonlar arasına boşluk */
+  width: 100%;
+}
+
+/* Arama Kutusu */
+.meal-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meal-search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Arama Butonu */
+.meal-search-button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.meal-search-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+/* Eklenen Yemekler Alanı */
+.added-meals {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.added-meals h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.added-meals ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.added-meal-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #333;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.added-meal-item span {
+  font-weight: bold;
+  color: #555;
+}
