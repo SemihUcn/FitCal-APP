@@ -71,9 +71,36 @@ const LoginScreen = () => {
     });
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    setIsAuthenticated(true);
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json(); // Backend'den gelen yanıtı al
+        alert('Giriş başarılı!');
+        console.log('User ID:', data.user_id); // Kullanıcı ID'sini logla
+        setIsAuthenticated(true); // Kullanıcıyı giriş yapmış olarak işaretle
+      } else if (response.status === 404) {
+        alert('Bu e-posta adresi kayıtlı değil. Lütfen kayıt olun.');
+      } else if (response.status === 401) {
+        alert('Şifre yanlış. Lütfen tekrar deneyiniz.');
+      } else {
+        alert('Bir hata oluştu, lütfen tekrar deneyiniz.');
+      }
+    } catch (error) {
+      console.error('Giriş hatası:', error);
+      alert('Sunucu hatası. Lütfen tekrar deneyin.');
+    }
   };
 
   const handleSignUp = async (e) => {
@@ -107,10 +134,33 @@ const LoginScreen = () => {
     }
   };
 
-  const handleSurveySubmit = () => {
-    setSurveyCompleted(true);
-  };
-
+  const handleSurveySubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/save_profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: 4, // Burada kullanıcı ID'sini dinamik olarak almanız gerekiyor.
+          activity_level: surveyData.dailyActivity,
+          diet_preference: surveyData.dietaryPreference,
+          target_weight: surveyData.targetWeight,
+          exercise_frequency: surveyData.exerciseFrequency,
+        }),
+      });
+  
+      if (response.ok) {
+        alert('Profil bilgileri başarıyla kaydedildi!');
+        setSurveyCompleted(true);
+      } else {
+        alert('Profil bilgileri kaydedilemedi, tekrar deneyiniz.');
+      }
+    } catch (error) {
+      console.error('Kaydetme hatası:', error);
+      alert('Bir hata oluştu, lütfen tekrar deneyiniz.');
+    }
+  }
   
   const renderBottomNav = () => (
     <div className="bottom-nav">
@@ -354,5 +404,6 @@ const LoginScreen = () => {
   
   
 };
+
 
 export default LoginScreen;

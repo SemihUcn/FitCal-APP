@@ -1,0 +1,53 @@
+2024-12-13 02:19:47,164 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 02:19:47,164 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 02:20:22,403 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:22] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 02:20:22,878 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:22] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 02:20:31,057 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:31] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:20:31,339 - ERROR - Veritabaný hatasý: (1146, "Table 'app_db.user_profiles' doesn't exist")
+2024-12-13 02:20:31,340 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:31] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:20:39,011 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:39] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:20:39,343 - ERROR - Veritabaný hatasý: (1146, "Table 'app_db.user_profiles' doesn't exist")
+2024-12-13 02:20:39,343 - INFO - 127.0.0.1 - - [13/Dec/2024 02:20:39] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:21:35,246 - INFO - 127.0.0.1 - - [13/Dec/2024 02:21:35] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:21:35,526 - ERROR - Veritabaný hatasý: (1146, "Table 'app_db.user_profiles' doesn't exist")
+2024-12-13 02:21:35,527 - INFO - 127.0.0.1 - - [13/Dec/2024 02:21:35] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:21:58,492 - INFO - 127.0.0.1 - - [13/Dec/2024 02:21:58] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:21:58,825 - ERROR - Veritabaný hatasý: (1146, "Table 'app_db.user_profiles' doesn't exist")
+2024-12-13 02:21:58,826 - INFO - 127.0.0.1 - - [13/Dec/2024 02:21:58] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:22:43,525 - INFO - 127.0.0.1 - - [13/Dec/2024 02:22:43] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:22:43,852 - ERROR - Veritabaný hatasý: (1146, "Table 'app_db.user_profiles' doesn't exist")
+2024-12-13 02:22:43,852 - INFO - 127.0.0.1 - - [13/Dec/2024 02:22:43] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:27:41,108 - INFO - 127.0.0.1 - - [13/Dec/2024 02:27:41] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:27:41,386 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:27:41,386 - INFO - 127.0.0.1 - - [13/Dec/2024 02:27:41] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:27:44,815 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:27:44,815 - INFO - 127.0.0.1 - - [13/Dec/2024 02:27:44] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:28:48,238 - INFO - 127.0.0.1 - - [13/Dec/2024 02:28:48] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:28:48,513 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:28:48,514 - INFO - 127.0.0.1 - - [13/Dec/2024 02:28:48] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:28:54,372 - INFO - 127.0.0.1 - - [13/Dec/2024 02:28:54] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 02:28:54,870 - INFO - 127.0.0.1 - - [13/Dec/2024 02:28:54] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 02:29:02,447 - INFO - 127.0.0.1 - - [13/Dec/2024 02:29:02] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:29:02,771 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:29:02,772 - INFO - 127.0.0.1 - - [13/Dec/2024 02:29:02] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:29:15,061 - INFO - 127.0.0.1 - - [13/Dec/2024 02:29:15] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:29:15,387 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:29:15,387 - INFO - 127.0.0.1 - - [13/Dec/2024 02:29:15] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:30:30,825 - INFO - 127.0.0.1 - - [13/Dec/2024 02:30:30] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:30:31,008 - INFO - 127.0.0.1 - - [13/Dec/2024 02:30:31] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:30:31,088 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:30:31,088 - INFO - 127.0.0.1 - - [13/Dec/2024 02:30:31] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:30:31,148 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:30:31,149 - INFO - 127.0.0.1 - - [13/Dec/2024 02:30:31] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:34:20,807 - INFO - 127.0.0.1 - - [13/Dec/2024 02:34:20] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:34:21,069 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:34:21,069 - INFO - 127.0.0.1 - - [13/Dec/2024 02:34:21] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:35:15,138 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 02:35:15,138 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 02:35:30,138 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:30] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 02:35:30,575 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:30] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 02:35:38,975 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:38] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:35:39,296 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:35:39,297 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:39] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
