@@ -88,6 +88,8 @@ const LoginScreen = () => {
       if (response.ok) {
         const data = await response.json(); // Backend'den kullanıcı ID'sini al
         const userId = data.user_id;
+       
+      
   
         // Kullanıcının profil verisini kontrol et
         const profileResponse = await fetch('http://localhost:5000/api/check_profile', {
@@ -104,12 +106,14 @@ const LoginScreen = () => {
           if (profileData.exists) {
             // Kullanıcının profili varsa direkt ana menüye git
             alert('Giriş başarılı! Profiliniz mevcut, ana menüye yönlendiriliyorsunuz.');
+       
             setSurveyCompleted(true);
             setIsAuthenticated(true);
           } else {
             // Kullanıcının profili yoksa anket ekranına yönlendir
             alert('Giriş başarılı! Profil bilgilerinizi doldurunuz.');
             setIsAuthenticated(true);
+     
           }
         }
       } else if (response.status === 404) {

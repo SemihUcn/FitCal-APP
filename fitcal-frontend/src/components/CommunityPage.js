@@ -3,10 +3,15 @@ import axios from 'axios';
 import './CommunityPage.css';
 
 const CommunityPage = () => {
+
   const [activeTab, setActiveTab] = useState('viewComments');
   const [comments, setComments] = useState([]);
+  
 
   useEffect(() => {
+   
+ 
+   
     // Fetch comments from the backend when the component loads
     axios.get('http://localhost:5000/api/comments')
       .then(response => {
@@ -63,16 +68,19 @@ const CommunityPage = () => {
           <ul>
             {comments.map((comment) => (
               <li key={comment.comment_id} className="comment-item">
-                <div className="comment-text">
-                  <strong>{comment.full_name}:</strong> {comment.text} ({comment.likes} beğeni)
-                  <button
-                    className="like-button"
-                    onClick={() => handleLike(comment.comment_id, comment.liked)}
-                  >
-                    {comment.liked ? 'Beğeniyi Geri Al' : 'Beğen'}
-                  </button>
-                </div>
-              </li>
+              <div className="comment-text">
+                <strong>{comment.full_name}:</strong> {comment.text} ({comment.likes} beğeni)
+              </div>
+              <div className="comment-actions">
+                <button
+                  className="like-button"
+                  onClick={() => handleLike(comment.comment_id, comment.liked)}
+                >
+                  {comment.liked ? 'Beğeniyi Geri Al' : 'Beğen'}
+                </button>
+              </div>
+            </li>
+            
             ))}
           </ul>
         </div>
