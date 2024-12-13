@@ -42,55 +42,36 @@ const MealSearchPage = ({ onClose }) => {
     setErrorMessage('');
   
     try {
+      const translatedQuery = await translateToEnglish(searchQuery);
+  
       const response = await fetch('http://localhost:5000/api/food_search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: searchQuery, user_id: 4 }),
+        body: JSON.stringify({ query: translatedQuery, user_id: 4 }),
       });
   
       if (response.ok) {
         const data = await response.json();
   
         if (data.results && data.results.length > 0) {
-          // Process the API results
-          const processedResults = data.results
-            .filter((result) =>
-              result.food_name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .map((result) => {
-              const description = result.food_description || '';
-              const match = description.match(
-                /Calories:\s*(\d+\.?\d*)kcal\s*\|\s*Fat:\s*(\d+\.?\d*)g\s*\|\s*Carbs:\s*(\d+\.?\d*)g\s*\|\s*Protein:\s*(\d+\.?\d*)g/
-              );
+          const processedResults = data.results.map((result) => {
+            const description = result.food_description || '';
+            const match = description.match(
+              /Calories:\s*(\d+\.?\d*)kcal\s*\|\s*Fat:\s*(\d+\.?\d*)g\s*\|\s*Carbs:\s*(\d+\.?\d*)g\s*\|\s*Protein:\s*(\d+\.?\d*)g/
+            );
   
-              // Scoring based on query match
-              const score = result.food_name
-                .toLowerCase()
-                .startsWith(searchQuery.toLowerCase())
-                ? 1 // Exact match gets higher priority
-                : 0;
+            return {
+              name: result.food_name,
+              protein: match ? parseFloat(match[4]) : 0,
+              carb: match ? parseFloat(match[3]) : 0,
+              fat: match ? parseFloat(match[2]) : 0,
+              calorie: match ? parseFloat(match[1]) : 0,
+            };
+          });
   
-              return {
-                name: result.food_name,
-                protein: match ? parseFloat(match[4]) : 0,
-                carb: match ? parseFloat(match[3]) : 0,
-                fat: match ? parseFloat(match[2]) : 0,
-                calorie: match ? parseFloat(match[1]) : 0,
-                score: score,
-              };
-            });
-  
-          // Remove duplicates by food name
-          const uniqueResults = Array.from(
-            new Map(processedResults.map((item) => [item.name, item])).values()
-          );
-  
-          // Sort results by score (relevance) and then alphabetically
-          setApiResults(
-            uniqueResults.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-          );
+          setApiResults(processedResults);
         } else {
           setErrorMessage('Sonuç bulunamadı.');
         }
@@ -104,6 +85,28 @@ const MealSearchPage = ({ onClose }) => {
       setIsLoading(false);
     }
   };
+  
+  
+  // Function to translate Turkish to English
+  const translateToEnglish = async (query) => {
+    try {
+      const response = await fetch('https://api.mymemory.translated.net/get', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // API for translation
+        query: { q: query, langpair: 'tr|en' },
+      });
+  
+      const data = await response.json();
+      return data.responseData.translatedText || query; // Fallback to the original query
+    } catch (error) {
+      console.error('Translation error:', error);
+      return query; // Fallback to original query on failure
+    }
+  };
+  
   
   
 
@@ -184,75 +187,63 @@ const MealSearchPage = ({ onClose }) => {
       </div>
 
       {activeTab === 'yemek' && (
-        <>
-          <div className="meal-search-container">
-            <input
-              type="text"
-              placeholder="Yemek ara..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="meal-search-input"
-            />
-            <button onClick={handleSearch} className="search-button">Ara</button>
-          </div>
+  <>
+    <div className="meal-search-container">
+      <input
+        type="text"
+        placeholder="Yemek ara..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="meal-search-input"
+      />
+      <button onClick={handleSearch} className="search-button">Ara</button>
+    </div>
 
-          {isLoading && <p>Arama yapılıyor...</p>}
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+    {isLoading && <p>Arama yapılıyor...</p>}
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <table className="meal-table">
-            <thead>
-              <tr>
-                <th>Yemek</th>
-                <th>Gramaj</th>
-                <th>Protein (g)</th>
-                <th>Karbonhidrat (g)</th>
-                <th>Yağ (g)</th>
-                <th>Kalori (kcal)</th>
-                <th>Ekle</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredMeals.map((meal) => {
-                const calculated = calculateValues(meal);
-                return (
-                  <tr key={meal.name}>
-                    <td>{meal.name}</td>
-                    <td>
-                      <input
-                        type="number"
-                        placeholder="Gramaj"
-                        value={mealGrams[meal.name] || ''}
-                        onChange={(e) => handleGramChange(meal.name, e.target.value)}
-                        min="1"
-                      />
-                    </td>
-                    <td>{calculated.protein}</td>
-                    <td>{calculated.carb}</td>
-                    <td>{calculated.fat}</td>
-                    <td>{calculated.calorie}</td>
-                    <td>
-                      <button className="add-button" onClick={() => addMeal(meal)}>Ekle</button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+    <table className="meal-table">
+      <thead>
+        <tr>
+          <th>Yemek</th>
+          <th>Gramaj</th>
+          <th>Protein (g)</th>
+          <th>Karbonhidrat (g)</th>
+          <th>Yağ (g)</th>
+          <th>Kalori (kcal)</th>
+          <th>Ekle</th>
+        </tr>
+      </thead>
+      <tbody>
+        {apiResults.map((meal) => {
+          const calculated = calculateValues(meal);
+          return (
+            <tr key={meal.name}>
+              <td>{meal.name}</td>
+              <td>
+                <input
+                  type="number"
+                  placeholder="Gramaj"
+                  value={mealGrams[meal.name] || ''}
+                  onChange={(e) => handleGramChange(meal.name, e.target.value)}
+                  min="1"
+                />
+              </td>
+              <td>{calculated.protein}</td>
+              <td>{calculated.carb}</td>
+              <td>{calculated.fat}</td>
+              <td>{calculated.calorie}</td>
+              <td>
+                <button className="add-button" onClick={() => addMeal(meal)}>Ekle</button>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </>
+)}
 
-          {addedMeals.length > 0 && (
-            <div className="added-meals-section">
-              <h3>Eklenen Yemekler</h3>
-              <ul>
-                {addedMeals.map((meal, index) => (
-                  <li key={index}>
-                    {meal.name || meal.food_name} - {meal.calories || meal.calorie || 0} kcal
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </>
-      )}
 
       {activeTab === 'tarifler' && (
         <div className="recipe-section">

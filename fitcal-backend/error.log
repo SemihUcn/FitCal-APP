@@ -752,3 +752,167 @@
 2024-12-13 23:49:04,096 - INFO - 127.0.0.1 - - [13/Dec/2024 23:49:04] "OPTIONS /api/food_search HTTP/1.1" 200 -
 2024-12-13 23:49:06,403 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
 2024-12-13 23:49:06,404 - INFO - 127.0.0.1 - - [13/Dec/2024 23:49:06] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:58:42,696 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 23:58:42,696 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 23:58:53,784 - INFO - 127.0.0.1 - - [13/Dec/2024 23:58:53] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 23:58:54,245 - INFO - 127.0.0.1 - - [13/Dec/2024 23:58:54] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 23:58:54,248 - INFO - 127.0.0.1 - - [13/Dec/2024 23:58:54] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 23:58:54,575 - INFO - 127.0.0.1 - - [13/Dec/2024 23:58:54] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 23:59:03,241 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:03] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 23:59:03,571 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:03] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 23:59:11,378 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:11] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:14,246 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-13 23:59:14,247 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:14] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:42,466 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:42] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:44,755 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-13 23:59:44,756 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:44] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:49,020 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:49] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:51,589 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-13 23:59:51,590 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:51] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-13 23:59:59,697 - INFO - 127.0.0.1 - - [13/Dec/2024 23:59:59] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:01,650 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:00:01,651 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:01] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:05,701 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:05] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:07,713 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:00:07,713 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:07] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:18,197 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:18] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:20,344 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:00:20,345 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:20] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:51,583 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:51] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:53,175 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:00:53,175 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:53] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:00:58,072 - INFO - 127.0.0.1 - - [14/Dec/2024 00:00:58] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:01:00,165 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:01:00,165 - INFO - 127.0.0.1 - - [14/Dec/2024 00:01:00] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:01:16,672 - INFO - 127.0.0.1 - - [14/Dec/2024 00:01:16] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:01:18,546 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:01:18,547 - INFO - 127.0.0.1 - - [14/Dec/2024 00:01:18] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:02:42,423 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:42] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 00:02:42,868 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:42] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 00:02:42,871 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:42] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:02:43,201 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:43] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:02:49,233 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:49] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:02:49,554 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:49] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:02:56,114 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:56] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:02:58,103 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:02:58,104 - INFO - 127.0.0.1 - - [14/Dec/2024 00:02:58] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:02,473 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:02] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:04,162 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:03:04,163 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:04] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:13,068 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:13] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:14,605 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:03:14,607 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:14] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:25,522 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:25] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:27,198 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:03:27,199 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:27] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:34,349 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:34] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:36,067 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:03:36,067 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:36] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:44,627 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:44] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:03:46,371 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:03:46,372 - INFO - 127.0.0.1 - - [14/Dec/2024 00:03:46] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:10:16,205 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:16] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:10:18,680 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:10:18,680 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:18] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:10:33,118 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:33] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 00:10:33,607 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:33] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 00:10:33,685 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:33] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:10:33,929 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:33] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:10:42,150 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:42] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:10:42,493 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:42] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:10:52,803 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:52] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:10:54,781 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:10:54,781 - INFO - 127.0.0.1 - - [14/Dec/2024 00:10:54] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:00,643 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:00] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:02,666 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:11:02,667 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:02] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:10,992 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:10] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:11,299 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:11] "[31m[1mPOST /api/food_search HTTP/1.1[0m" 400 -
+2024-12-14 00:11:23,459 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:23] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:26,246 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:11:26,247 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:26] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:41,770 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:41] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:43,771 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:11:43,771 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:43] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:47,051 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:47] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:48,824 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:11:48,825 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:48] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:51,143 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:11:51,144 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:51] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:11:59,826 - INFO - 127.0.0.1 - - [14/Dec/2024 00:11:59] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:12:02,997 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:12:02,998 - INFO - 127.0.0.1 - - [14/Dec/2024 00:12:02] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:12:30,699 - INFO - 127.0.0.1 - - [14/Dec/2024 00:12:30] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:12:31,030 - INFO - 127.0.0.1 - - [14/Dec/2024 00:12:31] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:12:39,505 - INFO - 127.0.0.1 - - [14/Dec/2024 00:12:39] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:12:39,827 - INFO - 127.0.0.1 - - [14/Dec/2024 00:12:39] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:18:04,768 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:04] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:18:07,291 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:18:07,292 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:07] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:18:11,312 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:11] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:18:13,341 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:18:13,341 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:13] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:18:25,413 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:25] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:18:28,109 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:18:28,110 - INFO - 127.0.0.1 - - [14/Dec/2024 00:18:28] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:20:29,822 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:29] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 00:20:30,248 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:30] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 00:20:30,252 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:30] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:20:30,589 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:30] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:20:38,201 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:38] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:20:38,527 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:38] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:20:45,257 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:45] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:20:47,407 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:20:47,408 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:47] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:20:53,142 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:53] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:20:55,981 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:20:55,982 - INFO - 127.0.0.1 - - [14/Dec/2024 00:20:55] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:22:38,898 - INFO - 127.0.0.1 - - [14/Dec/2024 00:22:38] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:22:40,912 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:22:40,914 - INFO - 127.0.0.1 - - [14/Dec/2024 00:22:40] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:23:47,480 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:47] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 00:23:47,926 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:47] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 00:23:47,930 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:47] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:23:48,258 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:48] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:23:57,144 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:57] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:23:57,467 - INFO - 127.0.0.1 - - [14/Dec/2024 00:23:57] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:24:03,848 - INFO - 127.0.0.1 - - [14/Dec/2024 00:24:03] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:24:06,052 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:24:06,052 - INFO - 127.0.0.1 - - [14/Dec/2024 00:24:06] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:24:45,073 - INFO - 127.0.0.1 - - [14/Dec/2024 00:24:45] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:24:46,943 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:24:46,944 - INFO - 127.0.0.1 - - [14/Dec/2024 00:24:46] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:25:26,281 - INFO - 127.0.0.1 - - [14/Dec/2024 00:25:26] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:25:26,596 - INFO - 127.0.0.1 - - [14/Dec/2024 00:25:26] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 00:26:48,209 - INFO - 127.0.0.1 - - [14/Dec/2024 00:26:48] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 00:26:48,451 - INFO - 127.0.0.1 - - [14/Dec/2024 00:26:48] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 00:26:56,923 - INFO - 127.0.0.1 - - [14/Dec/2024 00:26:56] "OPTIONS /api/comments HTTP/1.1" 200 -
+2024-12-14 00:26:57,258 - INFO - 127.0.0.1 - - [14/Dec/2024 00:26:57] "[35m[1mPOST /api/comments HTTP/1.1[0m" 201 -
+2024-12-14 00:26:57,509 - INFO - 127.0.0.1 - - [14/Dec/2024 00:26:57] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 00:27:02,360 - INFO - 127.0.0.1 - - [14/Dec/2024 00:27:02] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-14 00:27:02,694 - INFO - 127.0.0.1 - - [14/Dec/2024 00:27:02] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-14 00:27:17,879 - INFO - 127.0.0.1 - - [14/Dec/2024 00:27:17] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 00:27:18,200 - INFO - 127.0.0.1 - - [14/Dec/2024 00:27:18] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 00:29:14,279 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:14] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 00:29:14,718 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:14] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 00:29:14,720 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:14] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:29:15,050 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:15] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 00:29:20,628 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:20] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:29:20,968 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:20] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-14 00:29:26,241 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:26] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:29:28,424 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:29:28,425 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:28] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:29:33,305 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:33] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:29:35,162 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:29:35,163 - INFO - 127.0.0.1 - - [14/Dec/2024 00:29:35] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:30:12,360 - INFO - 127.0.0.1 - - [14/Dec/2024 00:30:12] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:30:14,336 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:30:14,337 - INFO - 127.0.0.1 - - [14/Dec/2024 00:30:14] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:30:44,821 - INFO - 127.0.0.1 - - [14/Dec/2024 00:30:44] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:30:45,136 - INFO - 127.0.0.1 - - [14/Dec/2024 00:30:45] "[31m[1mPOST /api/food_search HTTP/1.1[0m" 400 -
+2024-12-14 00:30:49,958 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 00:30:49,959 - INFO - 127.0.0.1 - - [14/Dec/2024 00:30:49] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 00:31:01,198 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 00:31:01,198 - INFO - [33mPress CTRL+C to quit[0m
