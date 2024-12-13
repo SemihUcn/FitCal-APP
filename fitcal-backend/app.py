@@ -239,35 +239,6 @@ def translate_text(text, source_lang="tr", target_lang="en"):
 
 
 
-@app.route('/api/save_survey', methods=['POST'])
-def save_survey():
-    data = request.json
-    user_id = data.get("user_id")
-    daily_activity = data.get("daily_activity")
-    dietary_preference = data.get("dietary_preference")
-    target_weight = data.get("target_weight")
-    exercise_frequency = data.get("exercise_frequency")
-
-    if not user_id or not daily_activity or not dietary_preference or not target_weight or not exercise_frequency:
-        return jsonify({"error": "Eksik veri"}), 400
-
-    try:
-        connection = get_db_connection()
-        with connection.cursor() as cursor:
-            query = """
-                UPDATE users
-                SET daily_activity = %s, dietary_preference = %s, target_weight = %s, exercise_frequency = %s
-                WHERE id = %s
-            """
-            cursor.execute(query, (daily_activity, dietary_preference, target_weight, exercise_frequency, user_id))
-            connection.commit()
-        return jsonify({"message": "Survey updated successfully"}), 200
-    except pymysql.MySQLError as e:
-        return jsonify({"error": str(e)}), 500
-    finally:
-        connection.close()
-
-
 
 
 

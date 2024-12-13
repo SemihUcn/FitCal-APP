@@ -98,3 +98,78 @@
 2024-12-13 02:53:43,216 - INFO - 127.0.0.1 - - [13/Dec/2024 02:53:43] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
 2024-12-13 02:55:51,232 - INFO - 127.0.0.1 - - [13/Dec/2024 02:55:51] "[31m[1mGET /api/save_profile HTTP/1.1[0m" 405 -
 2024-12-13 02:55:51,252 - INFO - 127.0.0.1 - - [13/Dec/2024 02:55:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-12-13 03:05:20,156 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 03:05:20,157 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 03:05:29,316 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:29] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:05:29,599 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:29] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2024-12-13 03:05:40,792 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:40] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 03:05:41,314 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:41] "POST /api/register HTTP/1.1" 200 -
+2024-12-13 03:05:43,547 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:43] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:05:44,051 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:44] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 03:05:44,110 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:44] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:05:44,373 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:44] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:05:53,434 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:53] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:05:53,773 - INFO - 127.0.0.1 - - [13/Dec/2024 03:05:53] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:06:03,265 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:03] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:06:03,584 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:03] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:06:08,064 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:08] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:06:08,374 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:08] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:06:15,109 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:15] "OPTIONS /api/comments HTTP/1.1" 200 -
+2024-12-13 03:06:15,446 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:15] "[35m[1mPOST /api/comments HTTP/1.1[0m" 201 -
+2024-12-13 03:06:15,671 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:15] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:06:17,473 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:17] "OPTIONS /api/comments/1/like HTTP/1.1" 200 -
+2024-12-13 03:06:17,810 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:17] "PATCH /api/comments/1/like HTTP/1.1" 200 -
+2024-12-13 03:06:18,053 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:18] "GET /api/comments?user_id=1 HTTP/1.1" 200 -
+2024-12-13 03:06:20,079 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:20] "PATCH /api/comments/1/like HTTP/1.1" 200 -
+2024-12-13 03:06:20,407 - INFO - 127.0.0.1 - - [13/Dec/2024 03:06:20] "GET /api/comments?user_id=1 HTTP/1.1" 200 -
+2024-12-13 03:07:09,997 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:09] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 03:07:10,517 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:10] "POST /api/register HTTP/1.1" 200 -
+2024-12-13 03:07:13,586 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:13] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:07:14,087 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:14] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 03:07:14,159 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:14] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:07:14,420 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:14] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:07:25,733 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:25] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:07:26,072 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:26] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:07:28,142 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:28] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:28,465 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:28] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:29,291 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:29] "OPTIONS /api/comments/1/like HTTP/1.1" 200 -
+2024-12-13 03:07:29,626 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:29] "PATCH /api/comments/1/like HTTP/1.1" 200 -
+2024-12-13 03:07:29,883 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:29] "GET /api/comments?user_id=1 HTTP/1.1" 200 -
+2024-12-13 03:07:36,390 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:36] "OPTIONS /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:36,736 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:36] "[35m[1mPOST /api/comments HTTP/1.1[0m" 201 -
+2024-12-13 03:07:36,974 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:36] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:41,597 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:41] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:07:41,920 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:41] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:07:46,113 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:46] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:46,448 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:46] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:07:52,383 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:52] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:07:52,707 - INFO - 127.0.0.1 - - [13/Dec/2024 03:07:52] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 03:08:51,138 - INFO - 127.0.0.1 - - [13/Dec/2024 03:08:51] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:08:51,462 - INFO - 127.0.0.1 - - [13/Dec/2024 03:08:51] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 03:24:41,971 - INFO - 127.0.0.1 - - [13/Dec/2024 03:24:41] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:24:42,220 - INFO - 127.0.0.1 - - [13/Dec/2024 03:24:42] "[33mPOST /api/login HTTP/1.1[0m" 404 -
+2024-12-13 03:24:57,084 - INFO - 127.0.0.1 - - [13/Dec/2024 03:24:57] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 03:24:57,602 - INFO - 127.0.0.1 - - [13/Dec/2024 03:24:57] "POST /api/register HTTP/1.1" 200 -
+2024-12-13 03:24:59,701 - INFO - 127.0.0.1 - - [13/Dec/2024 03:24:59] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:25:00,189 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:00] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 03:25:00,275 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:00] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:25:00,523 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:00] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:25:07,315 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:07] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:25:07,644 - ERROR - Veritabaný hatasý: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`app_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))')
+2024-12-13 03:25:07,644 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:07] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 03:25:25,867 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:25] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:25:26,192 - ERROR - Veritabaný hatasý: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`app_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))')
+2024-12-13 03:25:26,193 - INFO - 127.0.0.1 - - [13/Dec/2024 03:25:26] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 03:26:59,525 - INFO - 127.0.0.1 - - [13/Dec/2024 03:26:59] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:26:59,802 - ERROR - Veritabaný hatasý: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`app_db`.`user_profiles`, CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))')
+2024-12-13 03:26:59,802 - INFO - 127.0.0.1 - - [13/Dec/2024 03:26:59] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 03:28:42,952 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 03:28:42,953 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 03:28:56,770 - INFO - 127.0.0.1 - - [13/Dec/2024 03:28:56] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 03:28:57,212 - INFO - 127.0.0.1 - - [13/Dec/2024 03:28:57] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 03:28:57,215 - INFO - 127.0.0.1 - - [13/Dec/2024 03:28:57] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:28:57,544 - INFO - 127.0.0.1 - - [13/Dec/2024 03:28:57] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 03:29:03,421 - INFO - 127.0.0.1 - - [13/Dec/2024 03:29:03] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 03:29:03,753 - INFO - 127.0.0.1 - - [13/Dec/2024 03:29:03] "POST /api/save_profile HTTP/1.1" 200 -
