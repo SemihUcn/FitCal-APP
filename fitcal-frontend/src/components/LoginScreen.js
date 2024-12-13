@@ -8,10 +8,14 @@ import ProfilePage from './ProfilePage';
 import CommunityPage from './CommunityPage';
 import DailyPage from './DailyPage';
 import ListPage from './ListPage';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+
 
 
 
 const LoginScreen = () => {
+  const { setUserId } = useContext(UserContext);
   const [view, setView] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [surveyCompleted, setSurveyCompleted] = useState(false);
@@ -88,6 +92,7 @@ const LoginScreen = () => {
       if (response.ok) {
         const data = await response.json(); // Backend'den kullanıcı ID'sini al
         const userId = data.user_id;
+        setUserId(data.user_id);
   
         // Kullanıcının profil verisini kontrol et
         const profileResponse = await fetch('http://localhost:5000/api/check_profile', {

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CommunityPage.css';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+
 
 const CommunityPage = () => {
-
+  const { userId } = useContext(UserContext);
   const [activeTab, setActiveTab] = useState('viewComments');
   const [comments, setComments] = useState([]);
   
@@ -23,8 +26,6 @@ const CommunityPage = () => {
   }, []);
 
   const handleAddComment = (newComment) => {
-    // Example user_id (you may dynamically fetch it based on logged-in user)
-    const userId = 1; // Replace with actual user ID
     axios.post('http://localhost:5000/api/comments', {
       user_id: userId,
       text: newComment,
@@ -42,7 +43,6 @@ const CommunityPage = () => {
   };
 
   const handleLike = (id, liked) => {
-    const userId = 1; // Replace with actual logged-in user ID
     axios.patch(`http://localhost:5000/api/comments/${id}/like`, { user_id: userId })
       .then(response => {
         // Re-fetch comments after toggling like

@@ -1,10 +1,14 @@
 import React from "react";
 import LoginScreen from "./components/LoginScreen";
+import { UserProvider } from './context/UserContext';
+
 
 function App() {
   return (
     <div className="App">
-      <LoginScreen />
+       <UserProvider>
+       <LoginScreen />
+       </UserProvider>
     </div>
   );
 }
