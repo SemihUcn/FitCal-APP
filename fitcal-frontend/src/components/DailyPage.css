@@ -8,6 +8,7 @@
   flex-direction: column;
 }
 
+/* Öğünler tam genişlikte uzansın */
 .meal-section-horizontal {
   display: flex;
   justify-content: space-between;
@@ -17,9 +18,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin: 10px 0;
-  width: 100%;
-  max-width: 1200px;
+  width: calc(100% - 40px); /* Sol ve sağ boşluk bırak */
   margin-left: 0;
+  margin-right: auto;
+  max-width: 100%; /* Tüm genişliği kapla */
 }
 
 .meal-name {
