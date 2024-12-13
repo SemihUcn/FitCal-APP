@@ -396,3 +396,247 @@
 2024-12-13 15:45:39,325 - INFO - 127.0.0.1 - - [13/Dec/2024 15:45:39] "GET /api/comments HTTP/1.1" 200 -
 2024-12-13 15:45:39,571 - INFO - 127.0.0.1 - - [13/Dec/2024 15:45:39] "GET /api/profile/1 HTTP/1.1" 200 -
 2024-12-13 15:45:39,711 - INFO - 127.0.0.1 - - [13/Dec/2024 15:45:39] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 16:04:39,191 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 16:04:39,191 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 16:04:51,453 - INFO - 127.0.0.1 - - [13/Dec/2024 16:04:51] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 16:04:51,899 - INFO - 127.0.0.1 - - [13/Dec/2024 16:04:51] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:02,555 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:02] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 16:05:03,045 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:03] "[31m[1mPOST /api/register HTTP/1.1[0m" 409 -
+2024-12-13 16:05:07,432 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:07] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:07,923 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:07] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:20,907 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:20] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 16:05:21,409 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:21] "[31m[1mPOST /api/register HTTP/1.1[0m" 409 -
+2024-12-13 16:05:50,786 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:50] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:51,290 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:51] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:58,936 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:58] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 16:05:59,432 - INFO - 127.0.0.1 - - [13/Dec/2024 16:05:59] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 16:10:04,126 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:04] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 16:10:04,580 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:04] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 16:10:04,584 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:04] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 16:10:04,923 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:04] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 16:10:11,451 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:11] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 16:10:11,784 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:11] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 16:10:13,856 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:13] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 16:10:14,179 - INFO - 127.0.0.1 - - [13/Dec/2024 16:10:14] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:37:26,120 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 22:37:26,120 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:38:01,208 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:01] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:38:01,673 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:01] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 22:38:01,676 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:01] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:38:01,989 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:01] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:38:11,353 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:11] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:38:11,705 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:11] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:38:17,632 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:17] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:38:17,942 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:17] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:38:18,532 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:18] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:38:18,864 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:18] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:38:19,171 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:19] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:38:19,492 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:19] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:38:30,097 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:30] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:38:31,293 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:31] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
+2024-12-13 22:38:35,907 - INFO - 127.0.0.1 - - [13/Dec/2024 22:38:35] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:38:36,221 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:39:01,275 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:01] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:39:01,581 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:39:09,237 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:09] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:39:09,545 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:39:24,832 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:24] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:39:25,139 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:39:51,402 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:51] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:39:51,725 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:51] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:39:52,962 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:52] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:39:53,283 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:53] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:39:56,824 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:56] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:39:57,154 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:57] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:39:57,184 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:57] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:39:57,489 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:57] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:39:57,747 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:57] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:39:58,071 - INFO - 127.0.0.1 - - [13/Dec/2024 22:39:58] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:41:01,613 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:01] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:41:02,049 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:02] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 22:41:02,051 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:02] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:41:02,377 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:02] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:41:31,297 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:31] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:41:31,741 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:31] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 22:41:31,744 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:31] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:41:32,075 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:32] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:41:37,811 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:37] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:41:38,145 - ERROR - Veritabaný hatasý: (1264, "Out of range value for column 'target_weight' at row 1")
+2024-12-13 22:41:38,146 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:38] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 22:41:44,357 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:44] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:41:44,690 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:44] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:41:50,711 - INFO - 127.0.0.1 - - [13/Dec/2024 22:41:50] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:41:51,026 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:42:23,163 - INFO - 127.0.0.1 - - [13/Dec/2024 22:42:23] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:42:23,468 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:43:17,122 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:17] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:43:17,444 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:43:17,503 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:43:29,115 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:29] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:43:29,422 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:43:50,858 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:50] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:43:51,297 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:51] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 22:43:51,300 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:51] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:43:51,620 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:51] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:43:59,139 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:59] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:43:59,419 - INFO - 127.0.0.1 - - [13/Dec/2024 22:43:59] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:44:03,903 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:03] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:44:04,217 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:04] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:44:04,484 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:04] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:44:04,697 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:04] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:44:25,132 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:25] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:44:25,405 - INFO - 127.0.0.1 - - [13/Dec/2024 22:44:25] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:45:52,953 - INFO - 127.0.0.1 - - [13/Dec/2024 22:45:52] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:45:53,211 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:46:23,134 - INFO - 127.0.0.1 - - [13/Dec/2024 22:46:23] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-13 22:46:23,442 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-13 22:50:52,609 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:52] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:50:52,933 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:52] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:50:54,201 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:54] "OPTIONS /api/comments/7/like HTTP/1.1" 200 -
+2024-12-13 22:50:54,535 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:54] "PATCH /api/comments/7/like HTTP/1.1" 200 -
+2024-12-13 22:50:54,865 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:54] "GET /api/comments?user_id=1 HTTP/1.1" 200 -
+2024-12-13 22:50:55,195 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:55] "OPTIONS /api/comments/6/like HTTP/1.1" 200 -
+2024-12-13 22:50:55,526 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:55] "PATCH /api/comments/6/like HTTP/1.1" 200 -
+2024-12-13 22:50:55,850 - INFO - 127.0.0.1 - - [13/Dec/2024 22:50:55] "GET /api/comments?user_id=1 HTTP/1.1" 200 -
+2024-12-13 22:53:37,713 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 22:53:37,713 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:53:55,330 - INFO - 127.0.0.1 - - [13/Dec/2024 22:53:55] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:53:55,617 - INFO - 127.0.0.1 - - [13/Dec/2024 22:53:55] "[35m[1mPOST /api/login HTTP/1.1[0m" 500 -
+2024-12-13 22:54:10,174 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:10] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 22:54:10,659 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:10,663 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:10] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:11,654 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:11,658 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:11] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:12,439 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:12,443 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:12] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:12,636 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:12,640 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:12] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:12,697 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:12,700 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:12] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:12,817 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:12,821 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:12] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:12,968 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:12,972 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:12] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:13,196 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:13,200 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:13] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:13,680 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:13,684 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:13] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:13,846 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:13,851 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:13] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:54:14,012 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:54:14,016 - INFO - 127.0.0.1 - - [13/Dec/2024 22:54:14] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:55:42,175 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 22:55:42,175 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:55:56,410 - INFO - 127.0.0.1 - - [13/Dec/2024 22:55:56] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:55:56,684 - INFO - 127.0.0.1 - - [13/Dec/2024 22:55:56] "[35m[1mPOST /api/login HTTP/1.1[0m" 500 -
+2024-12-13 22:56:01,400 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:01] "[35m[1mPOST /api/login HTTP/1.1[0m" 500 -
+2024-12-13 22:56:15,727 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:15] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 22:56:16,169 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:16,174 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:16] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:17,883 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:17,886 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:17] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,331 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,334 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,498 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,504 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,588 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,592 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,626 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,631 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,789 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,794 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:19,935 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:19,940 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:19] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:23,927 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:23] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 22:56:24,438 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:24,441 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:24] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:24,582 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:24,586 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:24] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:24,680 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:24,683 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:24] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:24,740 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:24,744 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:24] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:24,906 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:24,912 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:24] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,071 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,075 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,237 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,241 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,420 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,423 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,573 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,576 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,755 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,759 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:25,951 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:25,954 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:25] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:26,147 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:26,150 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:26] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:26,326 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:26,330 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:26] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:26,509 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:26,514 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:26] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:26,692 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:26,696 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:26] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:26,837 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:26,844 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:26] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,023 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,027 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,188 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,192 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,354 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,357 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,523 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,527 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,704 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,707 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:27,885 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:27,888 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:27] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:28,045 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:28,048 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:28] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:28,263 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:28,266 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:28] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:28,424 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:28,430 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:28] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:28,625 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:28,630 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:28] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:28,851 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:28,855 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:28] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,033 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,037 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,199 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "OPTIONS /api/register HTTP/1.1" 200 -
+2024-12-13 22:56:29,214 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,217 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,578 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,581 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,684 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,688 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,748 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,753 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:29,946 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:29,950 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:29] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:30,142 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:30,146 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:30] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:30,326 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:30,330 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:30] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:30,506 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:30,509 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:30] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:56:32,203 - ERROR - Database error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2024-12-13 22:56:32,206 - INFO - 127.0.0.1 - - [13/Dec/2024 22:56:32] "[35m[1mPOST /api/register HTTP/1.1[0m" 500 -
+2024-12-13 22:58:41,210 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 22:58:41,210 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:58:52,279 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:52] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 22:58:52,716 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:52] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 22:58:52,721 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:52] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:58:53,051 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:53] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 22:58:59,234 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:59] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:58:59,568 - INFO - 127.0.0.1 - - [13/Dec/2024 22:58:59] "POST /api/save_profile HTTP/1.1" 200 -
+2024-12-13 22:59:06,782 - INFO - 127.0.0.1 - - [13/Dec/2024 22:59:06] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:59:07,114 - INFO - 127.0.0.1 - - [13/Dec/2024 22:59:07] "GET /api/comments HTTP/1.1" 200 -
+2024-12-13 22:59:07,386 - INFO - 127.0.0.1 - - [13/Dec/2024 22:59:07] "GET /api/profile/1 HTTP/1.1" 200 -
+2024-12-13 22:59:07,711 - INFO - 127.0.0.1 - - [13/Dec/2024 22:59:07] "GET /api/profile/1 HTTP/1.1" 200 -

@@ -4,18 +4,12 @@ import pymysql
 import bcrypt
 import requests
 import logging
+import re
 from requests.auth import HTTPBasicAuth
-
 
 # Flask uygulaması başlatma
 app = Flask(__name__)
 CORS(app)
-
-# FatSecret API bilgileri
-client_id = "52d04e4b3933478f93af98467bea88b2"  # API'den alınan Client ID
-client_secret = "4d7245106d384fd593977cd43ca2e44a"  # API'den alınan Client Secret
-
-#------------------------------------------------------------------------------------------
 
 # Veritabanı bağlantı bilgileri
 db_config = {
@@ -25,10 +19,17 @@ db_config = {
     "database": "app_db"
 }
 
+# FatSecret API bilgileri
+client_id = "52d04e4b3933478f93af98467bea88b2"  # API'den alınan Client ID
+client_secret = "761df8a84441410389a6fd9cb66585d8"  # API'den alınan Client Secret
+
+#------------------------------------------------------------------------------------------
 
 @app.route('/')
 def home():
     return jsonify({"message": "Flask server is running!"}), 200
+
+
 
 # Veritabanına bağlanma fonksiyonu
 def get_db_connection():
@@ -40,12 +41,45 @@ def get_db_connection():
         cursorclass=pymysql.cursors.DictCursor
     )
 
+
 # Hata loglama yapılandırması
 logging.basicConfig(filename='error.log', level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 #------------------------------------------------------------------------------------------
 
+def parse_food_description(food_description):
+    """
+    food_description içindeki besin değerlerini ayrıştırır.
+    """
+    try:
+        print(f"DEBUG - Gelen food_description: {food_description}")
+
+        # Eğer food_description boşsa, hata döner
+        if not food_description or len(food_description.strip()) == 0:
+            print("ERROR - food_description boş!")
+            return 0, 0, 0, 0
+
+        parts = food_description.split('|')
+        calories = fat = carbs = protein = 0
+
+        for part in parts:
+            part = part.strip()
+            if "Calories" in part:
+                calories = float(part.split(':')[1].replace('kcal', '').strip())
+            elif "Fat" in part:
+                fat = float(part.split(':')[1].replace('g', '').strip())
+            elif "Carbs" in part:
+                carbs = float(part.split(':')[1].replace('g', '').strip())
+            elif "Protein" in part:
+                protein = float(part.split(':')[1].replace('g', '').strip())
+
+        print(f"DEBUG - Ayrıştırılan Değerler: Calories: {calories}, Fat: {fat}, Carbs: {carbs}, Protein: {protein}")
+        return calories, fat, carbs, protein
+
+    except Exception as e:
+        print(f"Hata: {e}")
+        return 0, 0, 0, 0
 
 
 
@@ -106,39 +140,6 @@ def register_user():
             connection.close()
 
 #------------------------------------------------------------------------------------------
-
-@app.route('/api/check_profile', methods=['POST'])
-def check_profile():
-    """
-    Kullanıcının user_profiles tablosunda verisi olup olmadığını kontrol eder.
-    """
-    data = request.json
-    user_id = data.get('user_id')  # Kullanıcı ID'sini al
-
-    if not user_id:
-        return jsonify({"error": "Kullanıcı ID eksik"}), 400
-
-    try:
-        connection = get_db_connection()
-        with connection.cursor() as cursor:
-            # Kullanıcının profilini kontrol et
-            query = "SELECT * FROM user_profiles WHERE user_id = %s"
-            cursor.execute(query, (user_id,))
-            result = cursor.fetchone()
-
-            if result:
-                return jsonify({"exists": True}), 200  # Kayıt varsa exists=True
-            else:
-                return jsonify({"exists": False}), 200  # Kayıt yoksa exists=False
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-    finally:
-        connection.close()
-
-
-
-
-
 
 # Kullanıcı giriş endpoint'i
 @app.route('/api/login', methods=['POST'])
@@ -201,6 +202,27 @@ turkish_word = "elma"
 english_word = translate_text(turkish_word)
 print("Çevrilmiş kelime:", english_word)"""
 
+def save_search_history(user_id, search_term, translated_term):
+    """
+    Arama sorgusunu food_search_history tablosuna kaydeder.
+    """
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = """
+                INSERT INTO food_search_history (user_id, search_term, translated_term)
+                VALUES (%s, %s, %s)
+            """
+            cursor.execute(query, (user_id, search_term, translated_term))
+            connection.commit()
+            print("Arama geçmişi kaydedildi.")
+    except Exception as e:
+        logging.error(f"Arama geçmişi kaydetme hatası: {str(e)}")
+    finally:
+        connection.close()
+
+#------------------------------------------------------------------------------------------
+
 
 def translate_text(text, source_lang="tr", target_lang="en"):
     """
@@ -235,17 +257,6 @@ def translate_text(text, source_lang="tr", target_lang="en"):
 
 #------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-#------------------------------------------------------------------------------------------
-
 @app.route('/api/save_profile', methods=['POST'])
 def save_profile():
     """
@@ -263,6 +274,7 @@ def save_profile():
         return jsonify({"error": "Tüm alanlar doldurulmalıdır"}), 400
 
     try:
+
         connection = get_db_connection()
         with connection.cursor() as cursor:
             query = """
@@ -284,11 +296,42 @@ def save_profile():
 
 #------------------------------------------------------------------------------------------
 
+@app.route('/api/check_profile', methods=['POST'])
+def check_profile():
+    """
+    Kullanıcının user_profiles tablosunda verisi olup olmadığını kontrol eder.
+    """
+    data = request.json
+    user_id = data.get('user_id')  # Kullanıcı ID'sini al
+
+    if not user_id:
+        return jsonify({"error": "Kullanıcı ID eksik"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Kullanıcının profilini kontrol et
+            query = "SELECT * FROM user_profiles WHERE user_id = %s"
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+
+            if result:
+                return jsonify({"exists": True}), 200  # Kayıt varsa exists=True
+            else:
+                return jsonify({"exists": False}), 200  # Kayıt yoksa exists=False
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
+#------------------------------------------------------------------------------------------
 
 @app.route('/api/food_search', methods=['POST'])
 def food_search():
     """
     Türkçe arama terimini İngilizce'ye çevirip FatSecret API'den arama yapma.
+    Arama sorgusunu ayrıca food_search_history tablosuna kaydeder.
     """
     data = request.json
     search_expression = data.get("query")
@@ -297,37 +340,63 @@ def food_search():
     if not search_expression or not user_id:
         return jsonify({"error": "Arama terimi veya kullanıcı ID'si eksik"}), 400
 
-    # Arama terimini İngilizce'ye çevir
-    translated_expression = translate_text(search_expression)
-    if not translated_expression:
-        return jsonify({"error": "Çeviri işlemi başarısız"}), 500
+    # 1. Hardcoded çeviri kontrolü
+    translations = {"elma": "apple", "tavuk": "chicken"}
+    translated_expression = translations.get(search_expression.lower())
 
-    # FatSecret API için token alma
+    if not translated_expression:
+        # Çeviri API'sini kullan
+        translated_expression = translate_text(search_expression)
+        if not translated_expression:
+            return jsonify({"error": "Çeviri işlemi başarısız. İngilizce terim giriniz."}), 500
+
+    print(f"Arama Terimi: {search_expression} -> Çevrilen: {translated_expression}")  # Debug
+
+    # 2. FatSecret API için Token Alma
     token_url = "https://oauth.fatsecret.com/connect/token"
     auth = HTTPBasicAuth(client_id, client_secret)
     payload = {"grant_type": "client_credentials"}
 
-    token_response = requests.post(token_url, auth=auth, data=payload)
-    if token_response.status_code == 200:
-        access_token = token_response.json().get("access_token")
+    try:
+        response = requests.post(token_url, auth=auth, data=payload)
+        if response.status_code != 200:
+            print(f"Token Hatası: {response.text}")
+            return jsonify({"error": "Access token alınamadı", "details": response.text}), 500
 
-        # FatSecret API'ye İngilizce arama terimi gönderme
+        access_token = response.json().get("access_token")
+        print(f"Alınan Access Token: {access_token}")
+
+        # 3. FatSecret API'ye Arama Yapma
         api_url = "https://platform.fatsecret.com/rest/server.api"
         headers = {"Authorization": f"Bearer {access_token}"}
-        params = {"method": "foods.search", "search_expression": translated_expression, "format": "json"}
+        params = {
+            "method": "foods.search",
+            "search_expression": translated_expression,
+            "format": "json"
+        }
 
         api_response = requests.get(api_url, headers=headers, params=params)
+        print(f"API İsteği: {params}")
+        print(f"API Yanıtı: {api_response.status_code} - {api_response.text}")
+
         if api_response.status_code == 200:
+            # API'den gelen sonucu işle
             foods = api_response.json().get('foods', {}).get('food', [])
+            print(f"FatSecret API'den Gelen Veri: {foods}")
+            save_search_history(user_id, search_expression, translated_expression)
             return jsonify({"results": foods}), 200
         else:
-            return jsonify({"error": "API isteği başarısız", "details": api_response.text}), 500
-    else:
-        return jsonify({"error": "Access token alınamadı"}), 500
+            logging.error(f"FatSecret API Hatası: {api_response.text}")
+            return jsonify({"error": "FatSecret API isteği başarısız", "details": api_response.text}), 500
+
+    except Exception as e:
+        logging.error(f"Food search error: {str(e)}")
+        return jsonify({"error": "Sunucu hatası", "details": str(e)}), 500
 
 
 
 #------------------------------------------------------------------------------------------
+
 
 @app.route('/api/calculate_food', methods=['POST'])
 def calculate_food():
@@ -342,6 +411,11 @@ def calculate_food():
     protein = data.get("protein", 0)
     gram = data.get("gram", 100)  # Varsayılan olarak 100 gram alınıyor
 
+    # Debug için gelen veriyi kontrol et
+    print("DEBUG - Gelen Veri:")
+    print(f"Food Name: {food_name}")
+    print(f"Calories: {calories}, Fat: {fat}, Carbs: {carbs}, Protein: {protein}, Gram: {gram}")
+
     if not all([food_name, gram]):
         return jsonify({"error": "Yemek adı ve gram bilgisi gereklidir"}), 400
 
@@ -350,6 +424,10 @@ def calculate_food():
     adjusted_fat = (fat * gram) / 100
     adjusted_carbs = (carbs * gram) / 100
     adjusted_protein = (protein * gram) / 100
+
+    print("DEBUG - Hesaplanan Değerler:")
+    print(
+        f"Adjusted Calories: {adjusted_calories}, Adjusted Fat: {adjusted_fat}, Adjusted Carbs: {adjusted_carbs}, Adjusted Protein: {adjusted_protein}")
 
     return jsonify({
         "food_name": food_name,
@@ -363,35 +441,53 @@ def calculate_food():
 
 #------------------------------------------------------------------------------------------
 
+
 @app.route('/api/save_food', methods=['POST'])
 def save_food():
     """
     Kullanıcının seçtiği yiyeceği veritabanına kaydetme.
     """
     data = request.json
+    print(f"DEBUG - Gelen Veriler: {data}")  # Gelen tüm veriyi logla
     user_id = data.get("user_id")
     meal_type = data.get("meal_type")  # Kahvaltı, Öğle, Akşam vb.
     food_name = data.get("food_name")
-    calories = data.get("calories", 0)
-    fat = data.get("fat", 0)
-    carbs = data.get("carbs", 0)
-    protein = data.get("protein", 0)
+    food_description = data.get("food_description", "")
 
-    # Eksik veri kontrolü
+    # food_description parse edilerek besin değerleri hesaplanır
+    calories, fat, carbs, protein = parse_food_description(food_description)
+
+    print(f"DEBUG - Ayrıştırılan Besin Değerleri: {calories}, {fat}, {carbs}, {protein}")
+
     if not all([user_id, meal_type, food_name]):
         return jsonify({"error": "Kullanıcı ID, öğün türü ve yemek adı gereklidir"}), 400
 
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
+            # Kayıt var mı kontrolü
+            check_query = """
+                SELECT 1 FROM user_meals 
+                WHERE user_id = %s AND meal_type = %s AND food_name = %s
+            """
+            cursor.execute(check_query, (user_id, meal_type, food_name))
+            existing = cursor.fetchone()
+
+            if existing:
+                return jsonify({"message": "Bu yiyecek zaten eklenmiş"}), 409  # 409 Conflict
+
+            # Ekleme sorgusu
             query = """
                 INSERT INTO user_meals (user_id, meal_type, food_name, calories, fat, carbs, protein)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             cursor.execute(query, (user_id, meal_type, food_name, calories, fat, carbs, protein))
             connection.commit()
+
         return jsonify({"message": "Yiyecek başarıyla kaydedildi"}), 200
+
     except Exception as e:
+        logging.error(f"Veritabanı hatası: {str(e)}")
         return jsonify({"error": str(e)}), 500
     finally:
         connection.close()
@@ -420,6 +516,7 @@ def popular_foods():
         connection.close()
 
 #------------------------------------------------------------------------------------------
+
 
 @app.route('/api/daily_summary/<int:user_id>', methods=['GET'])
 def daily_summary(user_id):
@@ -570,7 +667,9 @@ def toggle_like(comment_id):
 
 
 
-
 # Uygulamayı başlat
 if __name__ == '__main__':
+    print("Starting Flask server at http://127.0.0.1:5000")
     app.run(debug=True, host='127.0.0.1', port=5000, use_reloader=False)
+
+

@@ -1,0 +1,113 @@
+# Kullanıcı profil detaylarını alma endpoint'i
+@app.route('/api/profile/<int:user_id>', methods=['GET'])
+def get_profile(user_id):
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = """
+                SELECT email, CONCAT(name, ' ', surname) AS full_name, height, weight, gender
+                FROM users
+                WHERE id = %s
+            """
+            cursor.execute(query, (user_id,))
+            user = cursor.fetchone()
+            
+            if user:
+                return jsonify(user), 200
+            else:
+                return jsonify({"error": "User not found"}), 404
+    except pymysql.MySQLError as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
+
+# Fetch all comments with like status for the current user
+@app.route('/api/comments', methods=['GET'])
+def get_comments():
+    user_id = request.args.get('user_id')  # Pass the user_id as a query parameter
+
+    connection = get_db_connection()
+    try:
+        with connection.cursor() as cursor:
+            query = """
+                SELECT 
+                    comments.id AS comment_id,
+                    CONCAT(users.name, ' ', users.surname) AS full_name,
+                    comments.text,
+                    comments.likes,
+                    comments.created_at,
+                    EXISTS(
+                        SELECT 1 FROM comment_likes 
+                        WHERE comment_likes.comment_id = comments.id 
+                        AND comment_likes.user_id = %s
+                    ) AS liked
+                FROM 
+                    comments
+                JOIN 
+                    users ON comments.user_id = users.id
+                ORDER BY 
+                    comments.created_at DESC
+            """
+            cursor.execute(query, (user_id,))
+            comments = cursor.fetchall()
+        return jsonify(comments), 200
+    finally:
+        connection.close()
+
+
+# Add a new comment
+@app.route('/api/comments', methods=['POST'])
+def add_comment():
+    data = request.json
+    user_id = data.get('user_id')
+    text = data.get('text')
+
+    if not user_id or not text:
+        return jsonify({"error": "User ID and text are required"}), 400
+
+    connection = get_db_connection()
+    try:
+        with connection.cursor() as cursor:
+            query = "INSERT INTO comments (user_id, text, likes, created_at) VALUES (%s, %s, 0, NOW())"
+            cursor.execute(query, (user_id, text))
+            connection.commit()
+        return jsonify({"message": "Comment added successfully"}), 201
+    finally:
+        connection.close()
+
+
+# Toggle like or unlike on a comment
+@app.route('/api/comments/<int:comment_id>/like', methods=['PATCH'])
+def toggle_like(comment_id):
+    data = request.json
+    user_id = data.get('user_id')  # Pass the user_id from the frontend
+
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    connection = get_db_connection()
+    try:
+        with connection.cursor() as cursor:
+            # Check if the user has already liked the comment
+            cursor.execute("SELECT * FROM comment_likes WHERE user_id = %s AND comment_id = %s", (user_id, comment_id))
+            like = cursor.fetchone()
+
+            if like:
+                # Unlike the comment
+                cursor.execute("DELETE FROM comment_likes WHERE user_id = %s AND comment_id = %s", (user_id, comment_id))
+                cursor.execute("UPDATE comments SET likes = likes - 1 WHERE id = %s", (comment_id,))
+                connection.commit()
+                return jsonify({"message": "Like removed"}), 200
+            else:
+                # Like the comment
+                cursor.execute("INSERT INTO comment_likes (user_id, comment_id) VALUES (%s, %s)", (user_id, comment_id))
+                cursor.execute("UPDATE comments SET likes = likes + 1 WHERE id = %s", (comment_id,))
+                connection.commit()
+                return jsonify({"message": "Comment liked"}), 200
+    finally:
+        connection.close()
+
+
+

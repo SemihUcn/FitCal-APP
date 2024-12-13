@@ -88,8 +88,6 @@ const LoginScreen = () => {
       if (response.ok) {
         const data = await response.json(); // Backend'den kullanıcı ID'sini al
         const userId = data.user_id;
-       
-      
   
         // Kullanıcının profil verisini kontrol et
         const profileResponse = await fetch('http://localhost:5000/api/check_profile', {
@@ -106,14 +104,12 @@ const LoginScreen = () => {
           if (profileData.exists) {
             // Kullanıcının profili varsa direkt ana menüye git
             alert('Giriş başarılı! Profiliniz mevcut, ana menüye yönlendiriliyorsunuz.');
-       
             setSurveyCompleted(true);
             setIsAuthenticated(true);
           } else {
             // Kullanıcının profili yoksa anket ekranına yönlendir
             alert('Giriş başarılı! Profil bilgilerinizi doldurunuz.');
             setIsAuthenticated(true);
-     
           }
         }
       } else if (response.status === 404) {
@@ -128,6 +124,7 @@ const LoginScreen = () => {
       alert('Sunucu hatası. Lütfen tekrar deneyin.');
     }
   };
+  
   
 
   const handleSignUp = async (e) => {
@@ -219,73 +216,71 @@ const LoginScreen = () => {
 
   if (isAuthenticated) {
     return (
-      <div className="login-screen__survey-container">
-        <h2 className="login-screen__survey-title">FitCal Kişisel Anket</h2>
-        <form className="login-screen__survey-form">
-          <label>Günlük Aktivite Seviyesi:</label>
-          <select
-            name="dailyActivity"
-            value={surveyData.dailyActivity}
-            onChange={handleSurveyChange}
-            required
-          >
-            <option value="">Seçiniz</option>
-            <option value="Sedentary">Sedentary</option>
-            <option value="Lightly active">Lightly active</option>
-            <option value="Moderately active">Moderately active</option>
-            <option value="Very active">Very active</option>
-          </select>
-  
-          <label>Diyet Tercihi:</label>
-          <select
-            name="dietaryPreference"
-            value={surveyData.dietaryPreference}
-            onChange={handleSurveyChange}
-            required
-          >
-            <option value="">Seçiniz</option>
-            <option value="Omnivore">Omnivore</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Vegan">Vegan</option>
-          </select>
-  
-          <label>Hedef Kilo:</label>
-          <input
-            type="number"
-            name="targetWeight"
-            placeholder="Kilo (kg)"
-            value={surveyData.targetWeight}
-            onChange={handleSurveyChange}
-            required
-          />
-  
-          <label>Egzersiz Sıklığı:</label>
-          <select
-            name="exerciseFrequency"
-            value={surveyData.exerciseFrequency}
-            onChange={handleSurveyChange}
-            required
-          >
-            <option value="">Seçiniz</option>
-            <option value="Never">Never</option>
-            <option value="1-2 times a week">1-2 times a week</option>
-            <option value="3-4 times a week">3-4 times a week</option>
-            <option value="Daily">Daily</option>
-          </select>
-  
-          <button
-            type="button"
-            className="login-screen__survey-button"
-            onClick={handleSurveySubmit}
-          >
-            Kaydet
-          </button>
+      <div>
+        <Header />
+        <h2>FitCal Kişisel Anket</h2>
+        <form>
+          <label>
+            Günlük Aktivite Seviyesi:
+            <select
+              name="dailyActivity"
+              value={surveyData.dailyActivity}
+              onChange={handleSurveyChange}
+              required
+            >
+              <option value="">Seçiniz</option>
+              <option value="Sedentary">Sedentary</option>
+              <option value="Lightly active">Lightly active</option>
+              <option value="Moderately active">Moderately active</option>
+              <option value="Very active">Very active</option>
+            </select>
+          </label>
+          <label>
+            Diyet Tercihi:
+            <select
+              name="dietaryPreference"
+              value={surveyData.dietaryPreference}
+              onChange={handleSurveyChange}
+              required
+            >
+              <option value="">Seçiniz</option>
+              <option value="Omnivore">Omnivore</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Vegan">Vegan</option>
+            </select>
+          </label>
+          <label>
+            Hedef Kilo:
+            <input
+              type="number"
+              name="targetWeight"
+              value={surveyData.targetWeight}
+              onChange={handleSurveyChange}
+              required
+            />
+          </label>
+          <label>
+            Egzersiz Sıklığı:
+            <select
+              name="exerciseFrequency"
+              value={surveyData.exerciseFrequency}
+              onChange={handleSurveyChange}
+              required
+            >
+              <option value="">Seçiniz</option>
+              <option value="Never">Never</option>
+              <option value="1-2 times a week">1-2 times a week</option>
+              <option value="3-4 times a week">3-4 times a week</option>
+              <option value="Daily">Daily</option>
+            </select>
+          </label>
+          <button type="button" onClick={handleSurveySubmit}>Kaydet</button>
         </form>
       </div>
     );
   }
   return (
-    <div className="login-screen__container">
+    <div className=".login-screen">
       <Header />
   
       {/* Kullanıcı giriş yapmış ve anket tamamlanmışsa */}
@@ -295,25 +290,19 @@ const LoginScreen = () => {
           {renderBottomNav()} {/* Alt navigasyon butonlarını gösterir */}
         </>
       ) : (
-        <div className="login-screen__box">
-          <div className="login-screen__image-container">
-            <img src={fitcalImage} alt="FitCal'a Hoşgeldiniz" className="login-screen__image" />
+        <div className="login-container">
+          <div className="login-image-container">
+            <img src={fitcalImage} alt="FitCal'a Hoşgeldiniz" className="login-image" />
           </div>
-          <h2 className="login-screen__title">FitCal'a Hoşgeldiniz</h2>
+          <h2>FitCal'a Hoşgeldiniz</h2>
   
           {/* Giriş Ekranı */}
           {view === null && (
-            <div className="login-screen__button-container">
-              <button
-                className="login-screen__button login-screen__button--signin"
-                onClick={() => setView('signIn')}
-              >
+            <div className="button-container">
+              <button className="login-btn sign-in" onClick={() => setView('signIn')}>
                 Sign In
               </button>
-              <button
-                className="login-screen__button login-screen__button--signup"
-                onClick={() => setView('signUp')}
-              >
+              <button className="login-btn.sign-up" onClick={() => setView('signUp')}>
                 Sign Up
               </button>
             </div>
@@ -321,7 +310,7 @@ const LoginScreen = () => {
   
           {/* Giriş Formu */}
           {view === 'signIn' && (
-            <form className="login-screen__form" onSubmit={handleSignIn}>
+            <form onSubmit={handleSignIn}>
               <input
                 type="email"
                 name="email"
@@ -338,13 +327,13 @@ const LoginScreen = () => {
                 onChange={handleChange}
                 required
               />
-              <button type="submit" className="login-screen__form-button">Sign In</button>
+              <button type="submit" className="btn">Sign In</button>
             </form>
           )}
   
           {/* Kayıt Formu */}
           {view === 'signUp' && (
-            <form className="login-screen__form" onSubmit={handleSignUp}>
+            <form onSubmit={handleSignUp}>
               <input
                 type="text"
                 name="name"
@@ -409,28 +398,25 @@ const LoginScreen = () => {
                 onChange={handleChange}
                 required
               />
-              <button type="submit" className="login-screen__form-button">Sign Up</button>
+              <button type="submit" className="btn">Sign Up</button>
             </form>
           )}
   
           {/* Sayfa Geçiş Bağlantısı */}
           {view !== null && (
-            <p
-              className="login-screen__switch-link"
-              onClick={() => setView(view === 'signUp' ? 'signIn' : 'signUp')}
-            >
-              {view === 'signUp'
-                ? 'Hesabınız var mı? Giriş Yapın'
-                : 'Hesabınız yok mu? Kayıt Olun'}
-            </p>
+            <div className="switch-container">
+              <p className="switch-link" onClick={() => setView(view === 'signUp' ? 'signIn' : 'signUp')}>
+                {view === 'signUp' ? 'Hesabınız var mı? Giriş Yapın' : 'Hesabınız yok mu? Kayıt Olun'}
+              </p>
+            </div>
           )}
         </div>
       )}
     </div>
   );
   
-  
 };
+
 
 
 export default LoginScreen;
