@@ -107,6 +107,39 @@ def register_user():
 
 #------------------------------------------------------------------------------------------
 
+@app.route('/api/check_profile', methods=['POST'])
+def check_profile():
+    """
+    Kullanıcının user_profiles tablosunda verisi olup olmadığını kontrol eder.
+    """
+    data = request.json
+    user_id = data.get('user_id')  # Kullanıcı ID'sini al
+
+    if not user_id:
+        return jsonify({"error": "Kullanıcı ID eksik"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Kullanıcının profilini kontrol et
+            query = "SELECT * FROM user_profiles WHERE user_id = %s"
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+
+            if result:
+                return jsonify({"exists": True}), 200  # Kayıt varsa exists=True
+            else:
+                return jsonify({"exists": False}), 200  # Kayıt yoksa exists=False
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
+
+
+
+
 # Kullanıcı giriş endpoint'i
 @app.route('/api/login', methods=['POST'])
 def login_user():
@@ -203,17 +236,6 @@ def translate_text(text, source_lang="tr", target_lang="en"):
 #------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
-
-   
 
 
 

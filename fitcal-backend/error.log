@@ -51,3 +51,50 @@
 2024-12-13 02:35:38,975 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:38] "OPTIONS /api/save_profile HTTP/1.1" 200 -
 2024-12-13 02:35:39,296 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
 2024-12-13 02:35:39,297 - INFO - 127.0.0.1 - - [13/Dec/2024 02:35:39] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:08,098 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 02:40:08,098 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 02:40:18,472 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:18] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 02:40:18,911 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:18] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 02:40:26,251 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:26] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:40:26,583 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:40:26,584 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:26] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:31,893 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:31] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:40:32,211 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:40:32,211 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:32] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:35,030 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:40:35,031 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:35] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:38,493 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:38] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:40:38,772 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:40:38,773 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:38] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:41,878 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:40:41,878 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:41] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:40:55,706 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:55] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:40:55,967 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'exercise_frequency' at row 1")
+2024-12-13 02:40:55,968 - INFO - 127.0.0.1 - - [13/Dec/2024 02:40:55] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:41:03,551 - INFO - 127.0.0.1 - - [13/Dec/2024 02:41:03] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:41:03,875 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'exercise_frequency' at row 1")
+2024-12-13 02:41:03,876 - INFO - 127.0.0.1 - - [13/Dec/2024 02:41:03] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:41:04,050 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'exercise_frequency' at row 1")
+2024-12-13 02:41:04,050 - INFO - 127.0.0.1 - - [13/Dec/2024 02:41:04] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:41:44,203 - INFO - 127.0.0.1 - - [13/Dec/2024 02:41:44] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:41:44,522 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:41:44,522 - INFO - 127.0.0.1 - - [13/Dec/2024 02:41:44] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:47:33,236 - INFO - 127.0.0.1 - - [13/Dec/2024 02:47:33] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:47:33,499 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:47:33,499 - INFO - 127.0.0.1 - - [13/Dec/2024 02:47:33] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:52:29,851 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-13 02:52:29,851 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 02:52:39,391 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:39] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-13 02:52:39,833 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:39] "POST /api/login HTTP/1.1" 200 -
+2024-12-13 02:52:39,836 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:39] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-13 02:52:40,149 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:40] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-13 02:52:46,902 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:46] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:52:47,220 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:52:47,220 - INFO - 127.0.0.1 - - [13/Dec/2024 02:52:47] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:53:42,890 - INFO - 127.0.0.1 - - [13/Dec/2024 02:53:42] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-13 02:53:43,215 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'activity_level' at row 1")
+2024-12-13 02:53:43,216 - INFO - 127.0.0.1 - - [13/Dec/2024 02:53:43] "[35m[1mPOST /api/save_profile HTTP/1.1[0m" 500 -
+2024-12-13 02:55:51,232 - INFO - 127.0.0.1 - - [13/Dec/2024 02:55:51] "[31m[1mGET /api/save_profile HTTP/1.1[0m" 405 -
+2024-12-13 02:55:51,252 - INFO - 127.0.0.1 - - [13/Dec/2024 02:55:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

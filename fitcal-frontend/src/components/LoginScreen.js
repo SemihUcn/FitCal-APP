@@ -86,10 +86,32 @@ const LoginScreen = () => {
       });
   
       if (response.ok) {
-        const data = await response.json(); // Backend'den gelen yanıtı al
-        alert('Giriş başarılı!');
-        console.log('User ID:', data.user_id); // Kullanıcı ID'sini logla
-        setIsAuthenticated(true); // Kullanıcıyı giriş yapmış olarak işaretle
+        const data = await response.json(); // Backend'den kullanıcı ID'sini al
+        const userId = data.user_id;
+  
+        // Kullanıcının profil verisini kontrol et
+        const profileResponse = await fetch('http://localhost:5000/api/check_profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ user_id: userId }),
+        });
+  
+        if (profileResponse.ok) {
+          const profileData = await profileResponse.json();
+  
+          if (profileData.exists) {
+            // Kullanıcının profili varsa direkt ana menüye git
+            alert('Giriş başarılı! Profiliniz mevcut, ana menüye yönlendiriliyorsunuz.');
+            setSurveyCompleted(true);
+            setIsAuthenticated(true);
+          } else {
+            // Kullanıcının profili yoksa anket ekranına yönlendir
+            alert('Giriş başarılı! Profil bilgilerinizi doldurunuz.');
+            setIsAuthenticated(true);
+          }
+        }
       } else if (response.status === 404) {
         alert('Bu e-posta adresi kayıtlı değil. Lütfen kayıt olun.');
       } else if (response.status === 401) {
@@ -102,6 +124,7 @@ const LoginScreen = () => {
       alert('Sunucu hatası. Lütfen tekrar deneyin.');
     }
   };
+  
 
   const handleSignUp = async (e) => {
     e.preventDefault();
