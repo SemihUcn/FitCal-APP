@@ -664,6 +664,77 @@ def toggle_like(comment_id):
 
 
 
+#######e--------------------------------------------------------------------------WaterPage database
+
+
+
+
+@app.route('/api/add_water', methods=['POST'])
+def add_water():
+    """
+    Adds water consumption for a user and updates the total.
+    """
+    data = request.json
+    user_id = data.get('user_id')
+    water_to_add = data.get('water_to_add')  # Water in liters
+
+    if not user_id or water_to_add is None:
+        return jsonify({"error": "User ID and water amount are required"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Check if the user already exists
+            cursor.execute("SELECT total_water FROM user_water WHERE user_id = %s", (user_id,))
+            result = cursor.fetchone()
+
+            if result:
+                # Update existing total
+                new_total = result['total_water'] + water_to_add
+                cursor.execute(
+                    "UPDATE user_water SET total_water = %s WHERE user_id = %s",
+                    (new_total, user_id)
+                )
+            else:
+                # Insert new record
+                cursor.execute(
+                    "INSERT INTO user_water (user_id, total_water) VALUES (%s, %s)",
+                    (user_id, water_to_add)
+                )
+            connection.commit()
+
+        return jsonify({"message": "Water added successfully", "new_total": new_total}), 200
+    except Exception as e:
+        logging.error(f"Error updating water: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+@app.route('/api/get_water', methods=['POST'])
+def get_water():
+    """
+    Fetches the total water consumption for a user.
+    """
+    data = request.json
+    user_id = data.get('user_id')
+
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT total_water FROM user_water WHERE user_id = %s", (user_id,))
+            result = cursor.fetchone()
+
+        return jsonify({"total_water": result['total_water'] if result else 0}), 200
+    except Exception as e:
+        logging.error(f"Error fetching water: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
 
 
 # Uygulamayı başlat

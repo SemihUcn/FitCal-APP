@@ -1221,3 +1221,36 @@
 2024-12-14 19:42:52,799 - INFO - 127.0.0.1 - - [14/Dec/2024 19:42:52] "OPTIONS /api/save_food HTTP/1.1" 200 -
 2024-12-14 19:42:53,105 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'meal_type' at row 1")
 2024-12-14 19:42:53,106 - INFO - 127.0.0.1 - - [14/Dec/2024 19:42:53] "[35m[1mPOST /api/save_food HTTP/1.1[0m" 500 -
+2024-12-14 19:49:53,501 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 19:49:53,501 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 19:50:01,683 - INFO - 127.0.0.1 - - [14/Dec/2024 19:50:01] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:50:03,353 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 19:50:03,354 - INFO - 127.0.0.1 - - [14/Dec/2024 19:50:03] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:50:04,932 - INFO - 127.0.0.1 - - [14/Dec/2024 19:50:04] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:50:05,238 - ERROR - Veritabaný hatasý: (1265, "Data truncated for column 'meal_type' at row 1")
+2024-12-14 19:50:05,238 - INFO - 127.0.0.1 - - [14/Dec/2024 19:50:05] "[35m[1mPOST /api/save_food HTTP/1.1[0m" 500 -
+2024-12-14 19:51:19,533 - INFO - 127.0.0.1 - - [14/Dec/2024 19:51:19] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:51:19,806 - INFO - 127.0.0.1 - - [14/Dec/2024 19:51:19] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:52:50,118 - INFO - 127.0.0.1 - - [14/Dec/2024 19:52:50] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:52:52,896 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 19:52:52,897 - INFO - 127.0.0.1 - - [14/Dec/2024 19:52:52] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:53:12,093 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:12] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:53:13,637 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 19:53:13,637 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:13] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:53:20,465 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:20] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:53:20,780 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:20] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:53:39,273 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:39] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:53:40,841 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 19:53:40,843 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:40] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 19:53:43,142 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:43] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 19:53:43,456 - INFO - 127.0.0.1 - - [14/Dec/2024 19:53:43] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 20:18:07,988 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 20:18:07,988 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 20:18:46,718 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:46] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 20:18:47,135 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:47] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 20:18:47,139 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:47] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 20:18:47,458 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:47] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 20:18:53,295 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:53] "OPTIONS /api/save_profile HTTP/1.1" 200 -
+2024-12-14 20:18:53,621 - INFO - 127.0.0.1 - - [14/Dec/2024 20:18:53] "POST /api/save_profile HTTP/1.1" 200 -
