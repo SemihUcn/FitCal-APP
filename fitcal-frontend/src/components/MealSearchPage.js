@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './MealSearchPage.css';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 const MealSearchPage = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState('yemek'); // Active tab state
@@ -9,6 +11,8 @@ const MealSearchPage = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const [errorMessage, setErrorMessage] = useState(''); // Error message state
   const [mealGrams, setMealGrams] = useState({}); // Meal grams state
+  const { userId } = useContext(UserContext);
+  
 
   const staticMeals = [
     { name: 'Yulaf Ezmesi', protein: 5, carb: 27, fat: 3, calorie: 150 },
@@ -49,7 +53,7 @@ const MealSearchPage = ({ onClose }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: translatedQuery, user_id: 4 }),
+        body: JSON.stringify({ query: translatedQuery, user_id: userId }),
       });
   
       if (response.ok) {
@@ -127,6 +131,7 @@ const MealSearchPage = ({ onClose }) => {
   };
 
   const addMeal = async (meal) => {
+    const calculatedValues = calculateValues(meal);
     try {
       const response = await fetch("http://localhost:5000/api/save_food", {
         method: "POST",
@@ -134,10 +139,14 @@ const MealSearchPage = ({ onClose }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: 4,
+          user_id: userId,
           meal_type: "kahvaltı",
           food_name: meal.name,
-          food_description: meal.description || "",
+          food_description: meal.description || "", // Optional: keep it for display purposes
+          protein: Number(calculatedValues.protein),
+          carb: Number(calculatedValues.carb),
+          fat: Number(calculatedValues.fat),
+          calorie: Number(calculatedValues.calorie),
         }),
       });
 

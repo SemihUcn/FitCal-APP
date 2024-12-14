@@ -551,7 +551,6 @@ def daily_summary(user_id):
 
 
 #------------------------------------------------------------------------------------------
-
 # Kullanıcı profil detaylarını alma endpoint'i
 @app.route('/api/profile/<int:user_id>', methods=['GET'])
 def get_profile(user_id):

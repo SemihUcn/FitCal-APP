@@ -1023,3 +1023,137 @@
 2024-12-14 01:49:21,567 - INFO - 127.0.0.1 - - [14/Dec/2024 01:49:21] "POST /api/save_profile HTTP/1.1" 200 -
 2024-12-14 01:49:37,547 - INFO - 127.0.0.1 - - [14/Dec/2024 01:49:37] "GET /api/comments HTTP/1.1" 200 -
 2024-12-14 01:49:37,795 - INFO - 127.0.0.1 - - [14/Dec/2024 01:49:37] "GET /api/comments HTTP/1.1" 200 -
+2024-12-14 03:03:33,005 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 03:03:33,006 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 03:03:45,866 - INFO - 127.0.0.1 - - [14/Dec/2024 03:03:45] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 03:03:46,315 - INFO - 127.0.0.1 - - [14/Dec/2024 03:03:46] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 03:03:46,318 - INFO - 127.0.0.1 - - [14/Dec/2024 03:03:46] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:03:46,651 - INFO - 127.0.0.1 - - [14/Dec/2024 03:03:46] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:04:00,155 - INFO - 127.0.0.1 - - [14/Dec/2024 03:04:00] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:04:02,054 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:04:02,055 - INFO - 127.0.0.1 - - [14/Dec/2024 03:04:02] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:04:05,479 - INFO - 127.0.0.1 - - [14/Dec/2024 03:04:05] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:04:05,810 - INFO - 127.0.0.1 - - [14/Dec/2024 03:04:05] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:18:09,727 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 03:18:09,727 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 03:19:06,285 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:06] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 03:19:06,722 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:06] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 03:19:06,727 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:06] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:19:07,045 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:07] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:19:15,206 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:15] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:19:17,013 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:19:17,014 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:17] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:19:22,150 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:22] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:19:22,468 - INFO - 127.0.0.1 - - [14/Dec/2024 03:19:22] "[31m[1mPOST /api/save_food HTTP/1.1[0m" 409 -
+2024-12-14 03:20:27,617 - INFO - 127.0.0.1 - - [14/Dec/2024 03:20:27] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:20:29,237 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:20:29,238 - INFO - 127.0.0.1 - - [14/Dec/2024 03:20:29] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:20:33,549 - INFO - 127.0.0.1 - - [14/Dec/2024 03:20:33] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:20:33,875 - INFO - 127.0.0.1 - - [14/Dec/2024 03:20:33] "[31m[1mPOST /api/save_food HTTP/1.1[0m" 409 -
+2024-12-14 03:21:17,203 - INFO - 127.0.0.1 - - [14/Dec/2024 03:21:17] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:21:18,767 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:21:18,768 - INFO - 127.0.0.1 - - [14/Dec/2024 03:21:18] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:21:22,817 - INFO - 127.0.0.1 - - [14/Dec/2024 03:21:22] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:21:23,150 - INFO - 127.0.0.1 - - [14/Dec/2024 03:21:23] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:24:18,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 03:24:18,096 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 03:24:28,757 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:28] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 03:24:29,187 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:29] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 03:24:29,190 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:29] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:24:29,511 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:29] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:24:36,797 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:36] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:24:38,469 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:24:38,470 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:38] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:24:39,974 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:39] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:24:40,328 - INFO - 127.0.0.1 - - [14/Dec/2024 03:24:40] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:28:12,250 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 03:28:12,250 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 03:28:20,897 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:20] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 03:28:21,315 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:21] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 03:28:21,319 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:21] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:28:21,642 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:21] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:28:31,389 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:31] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:28:33,098 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:28:33,099 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:33] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:28:37,578 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:37] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:28:37,902 - INFO - 127.0.0.1 - - [14/Dec/2024 03:28:37] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:31:05,548 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:05] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 03:31:06,003 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:06] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 03:31:06,007 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:06] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:31:06,338 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:06] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 03:31:13,701 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:13] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:31:15,426 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 03:31:15,426 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:15] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 03:31:17,838 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:17] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-14 03:31:18,169 - INFO - 127.0.0.1 - - [14/Dec/2024 03:31:18] "POST /api/save_food HTTP/1.1" 200 -
+2024-12-14 15:47:53,152 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 15:47:53,157 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 15:48:21,447 - INFO - 127.0.0.1 - - [14/Dec/2024 15:48:21] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 15:48:21,885 - INFO - 127.0.0.1 - - [14/Dec/2024 15:48:21] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 15:48:21,888 - INFO - 127.0.0.1 - - [14/Dec/2024 15:48:21] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:48:22,217 - INFO - 127.0.0.1 - - [14/Dec/2024 15:48:22] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:48:47,034 - INFO - 127.0.0.1 - - [14/Dec/2024 15:48:47] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:48:47,352 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:49:11,111 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:11] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:49:11,415 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:11] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:49:11,417 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:49:11,722 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:49:19,187 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:19] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:49:19,495 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:49:58,461 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:58] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:49:58,462 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:58] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:49:58,767 - INFO - 127.0.0.1 - - [14/Dec/2024 15:49:58] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:50:00,798 - ERROR - Çeviri API hatasý: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /translate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000172EFDAA650>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2024-12-14 15:50:01,100 - ERROR - Çeviri API hatasý: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /translate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000172EFDD9490>: Failed to establish a new connection: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý'))
+2024-12-14 15:50:20,701 - INFO - 127.0.0.1 - - [14/Dec/2024 15:50:20] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:50:58,146 - INFO - 127.0.0.1 - - [14/Dec/2024 15:50:58] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 15:50:58,635 - INFO - 127.0.0.1 - - [14/Dec/2024 15:50:58] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 15:50:58,707 - INFO - 127.0.0.1 - - [14/Dec/2024 15:50:58] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:50:58,965 - INFO - 127.0.0.1 - - [14/Dec/2024 15:50:58] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:51:13,190 - INFO - 127.0.0.1 - - [14/Dec/2024 15:51:13] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:51:13,497 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:52:39,977 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 15:52:39,977 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 15:52:50,351 - INFO - 127.0.0.1 - - [14/Dec/2024 15:52:50] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 15:52:50,799 - INFO - 127.0.0.1 - - [14/Dec/2024 15:52:50] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 15:52:50,802 - INFO - 127.0.0.1 - - [14/Dec/2024 15:52:50] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:52:51,121 - INFO - 127.0.0.1 - - [14/Dec/2024 15:52:51] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 15:53:04,217 - INFO - 127.0.0.1 - - [14/Dec/2024 15:53:04] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 15:53:04,529 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 15:53:44,217 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 15:53:44,218 - INFO - 127.0.0.1 - - [14/Dec/2024 15:53:44] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 18:54:57,752 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 18:54:57,752 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 18:55:16,639 - INFO - 127.0.0.1 - - [14/Dec/2024 18:55:16] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 18:55:17,093 - INFO - 127.0.0.1 - - [14/Dec/2024 18:55:17] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 18:55:17,096 - INFO - 127.0.0.1 - - [14/Dec/2024 18:55:17] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:55:17,423 - INFO - 127.0.0.1 - - [14/Dec/2024 18:55:17] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:55:25,407 - INFO - 127.0.0.1 - - [14/Dec/2024 18:55:25] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 18:55:25,732 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 18:56:24,506 - INFO - 127.0.0.1 - - [14/Dec/2024 18:56:24] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
+2024-12-14 18:57:46,997 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 18:57:46,997 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 18:57:58,701 - INFO - 127.0.0.1 - - [14/Dec/2024 18:57:58] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 18:57:59,154 - INFO - 127.0.0.1 - - [14/Dec/2024 18:57:59] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 18:57:59,157 - INFO - 127.0.0.1 - - [14/Dec/2024 18:57:59] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:57:59,488 - INFO - 127.0.0.1 - - [14/Dec/2024 18:57:59] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:58:06,160 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:06] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 18:58:06,481 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 18:58:29,841 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 18:58:29,842 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:29] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-14 18:58:36,199 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:36] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 18:58:36,707 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:36] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 18:58:36,768 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:36] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:58:37,021 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:37] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 18:58:43,125 - INFO - 127.0.0.1 - - [14/Dec/2024 18:58:43] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-14 18:58:43,439 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-14 18:59:46,224 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-14 18:59:46,225 - INFO - 127.0.0.1 - - [14/Dec/2024 18:59:46] "POST /api/food_search HTTP/1.1" 200 -
