@@ -1,9 +1,34 @@
 // ReportPage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './ReportPage.css';
+import { UserContext } from '../context/UserContext';
 
 const ReportPage = () => {
+  const { userId } = useContext(UserContext);
   const [activeSection, setActiveSection] = useState('none');
+  const [calorieData, setCalorieData] = useState([]);
+  const [totalCalories, setTotalCalories] = useState(0);
+  const [error, setError] = useState('');
+
+  // API'den veri çekme fonksiyonu
+  const fetchCalorieSummary = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/calorie_summary/${userId}`);
+      if (!response.ok) throw new Error('Veri alınırken bir hata oluştu.');
+      const data = await response.json();
+
+      setCalorieData(data.calorie_summary);
+      setTotalCalories(data.total_calories);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  useEffect(() => {
+    if (activeSection === 'kaloriler') {
+      fetchCalorieSummary();
+    }
+  }, [activeSection]);
 
   const renderSection = () => {
     switch (activeSection) {
@@ -11,19 +36,27 @@ const ReportPage = () => {
         return (
           <div className="report-content">
             <h2 className="section-title">Kaloriler</h2>
-            <div className="calorie-overview">
-              <p className="calorie-text">Günlük Ortalama: 0 | Hedef: 2900 kcal</p>
-              <div className="calorie-chart">
-                {/* Replace with an actual chart component if needed */}
-                <div className="chart-placeholder">Kalori Grafiği Burada</div>
-              </div>
-              <ul className="meal-summary">
-                <li><span className="meal-color breakfast"></span>Kahvaltı (0%) - 0 kcal</li>
-                <li><span className="meal-color lunch"></span>Öğle Yemeği (0%) - 0 kcal</li>
-                <li><span className="meal-color dinner"></span>Akşam Yemeği (0%) - 0 kcal</li>
-                <li><span className="meal-color snacks"></span>Aperatifler/Diğer (0%) - 0 kcal</li>
-              </ul>
-            </div>
+            {error && <p className="error-message">{error}</p>}
+            {!error && (
+              <>
+                <div className="calorie-overview">
+                  <p className="calorie-text">
+                    Günlük Toplam: {totalCalories} kcal | Hedef: 2900 kcal
+                  </p>
+                  <div className="calorie-chart">
+                    <div className="chart-placeholder">Kalori Grafiği Burada</div>
+                  </div>
+                  <ul className="meal-summary">
+                    {calorieData.map((meal) => (
+                      <li key={meal.meal_type}>
+                        <span className={`meal-color ${meal.meal_type}`}></span>
+                        {meal.meal_type} ({meal.percentage}%) - {meal.calories} kcal
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
           </div>
         );
       case 'makrolar':
@@ -31,7 +64,6 @@ const ReportPage = () => {
           <div className="report-content">
             <h2 className="section-title">Makrolar</h2>
             <div className="macro-chart">
-              {/* Replace with an actual chart component if needed */}
               <div className="chart-placeholder">Makro Grafiği Burada</div>
             </div>
             <ul className="macro-summary">
@@ -57,7 +89,7 @@ const ReportPage = () => {
               <tbody>
                 <tr>
                   <td>Kaloriler (kcal)</td>
-                  <td>-</td>
+                  <td>{totalCalories}</td>
                   <td>20300</td>
                   <td>-</td>
                 </tr>

@@ -886,6 +886,52 @@ def get_exercise_entries():
 
 
 
+@app.route('/api/calorie_summary/<int:user_id>', methods=['GET'])
+def calorie_summary(user_id):
+    """
+    Kullanıcının toplam kalorilerini ve öğün bazında yüzdesel dağılımını döner.
+    """
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Öğün bazında toplam kaloriyi hesapla
+            query = """
+                SELECT meal_type, SUM(calories) AS total_calories
+                FROM user_meals
+                WHERE user_id = %s
+                GROUP BY meal_type
+            """
+            cursor.execute(query, (user_id,))
+            meal_totals = cursor.fetchall()
+
+            # Toplam kaloriyi hesapla
+            total_calories = sum(row['total_calories'] for row in meal_totals)
+
+            # Öğün bazında yüzdesel dağılımı hesapla
+            calorie_summary = []
+            for row in meal_totals:
+                percentage = (row['total_calories'] / total_calories * 100) if total_calories > 0 else 0
+                calorie_summary.append({
+                    "meal_type": row['meal_type'],
+                    "calories": row['total_calories'],
+                    "percentage": round(percentage, 2)
+                })
+
+        return jsonify({
+            "total_calories": total_calories,
+            "calorie_summary": calorie_summary
+        }), 200
+
+    except Exception as e:
+        logging.error(f"Error in calorie_summary: {str(e)}")
+        return jsonify({"error": "Sunucu hatası"}), 500
+    finally:
+        connection.close() 
+
+
+
+
+
 
 
 # Uygulamayı başlat
