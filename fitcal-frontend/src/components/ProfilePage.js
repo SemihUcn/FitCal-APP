@@ -81,28 +81,38 @@ const ProfilePage = () => {
           </div>
         );
 
-      case 'Benim Kilom':
-        return (
-          <div style={styles.weightContainer}>
-            <h3 style={styles.sectionTitle}>Benim Kilom</h3>
-            <p style={styles.detail}><strong>Başlangıç Kilo:</strong> {startingWeight} kg</p>
-            <p style={styles.detail}><strong>Mevcut Kilo:</strong> {currentWeight} kg</p>
-            <p style={styles.detail}><strong>Hedef Kilo:</strong> {targetWeight} kg</p>
+        case 'Benim Kilom':
+  return (
+    <div style={styles.weightContainer}>
+      <h3 style={styles.sectionTitle}>Benim Kilom</h3>
+      <p style={styles.detail}><strong>Başlangıç Kilo:</strong> {startingWeight} kg</p>
+      <p style={styles.detail}><strong>Mevcut Kilo:</strong> {currentWeight} kg</p>
+      <p style={styles.detail}><strong>Hedef Kilo:</strong> {targetWeight} kg</p>
+      <p style={styles.detail}><strong>Hedefe Kalan Kilo:</strong> {Math.max(0, targetWeight - currentWeight)} kg</p>
 
-            <div style={styles.updateWeightContainer}>
-              <input
-                type="number"
-                placeholder="Yeni Kilo Girin"
-                value={newWeight}
-                onChange={(e) => setNewWeight(e.target.value)}
-                style={styles.weightInput}
-              />
-              <button onClick={handleUpdateWeight} style={styles.updateButton}>
-                Güncelle
-              </button>
-            </div>
-          </div>
-        );
+      <div style={styles.updateWeightContainer}>
+        <input
+          type="number"
+          placeholder="Yeni Kilo Girin"
+          value={newWeight}
+          onChange={(e) => setNewWeight(e.target.value)}
+          style={styles.weightInput}
+        />
+        <button onClick={handleUpdateWeight} style={styles.updateButton}>
+          Güncelle
+        </button>
+      </div>
+
+      {/* Show congratulations message if the goal weight is reached */}
+      {currentWeight <= targetWeight && (
+        <div style={styles.congratulationsContainer}>
+          🎉 <strong>Tebrikler!</strong> Hedef kilonuza ulaştınız! 🎉
+        </div>
+      )}
+    </div>
+  );
+
+        
 
       default:
         return <p style={styles.infoText}>Bir seçenek seçiniz.</p>;
