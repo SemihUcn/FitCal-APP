@@ -21,7 +21,7 @@ db_config = {
 
 # FatSecret API bilgileri
 client_id = "52d04e4b3933478f93af98467bea88b2"  # API'den alınan Client ID
-client_secret = "761df8a84441410389a6fd9cb66585d8"  # API'den alınan Client Secret
+client_secret = "317f95657130487b856ba70ae5a93370"  # API'den alınan Client Secret
 
 #------------------------------------------------------------------------------------------
 
@@ -450,48 +450,63 @@ def save_food():
     """
     data = request.json
     print(f"DEBUG - Gelen Veriler: {data}")  # Gelen tüm veriyi logla
+
+    # Gerekli verileri al
     user_id = data.get("user_id")
-    meal_type = data.get("meal_type")  # Kahvaltı, Öğle, Akşam vb.
+    meal_type = data.get("meal_type")
     food_name = data.get("food_name")
     food_description = data.get("food_description", "")
 
     # food_description parse edilerek besin değerleri hesaplanır
     calories, fat, carbs, protein = parse_food_description(food_description)
 
-    print(f"DEBUG - Ayrıştırılan Besin Değerleri: {calories}, {fat}, {carbs}, {protein}")
+    print(f"DEBUG - Ayrıştırılan Besin Değerleri: Calories: {calories}, Fat: {fat}, Carbs: {carbs}, Protein: {protein}")
 
+    # Giriş verilerini kontrol et
     if not all([user_id, meal_type, food_name]):
         return jsonify({"error": "Kullanıcı ID, öğün türü ve yemek adı gereklidir"}), 400
 
+    # Veritabanı bağlantısı
+    connection = None
     try:
         connection = get_db_connection()
         with connection.cursor() as cursor:
-            # Kayıt var mı kontrolü
+            # Kullanıcı, öğün türü ve yemek adı kombinasyonunun var olup olmadığını kontrol et
             check_query = """
                 SELECT 1 FROM user_meals 
                 WHERE user_id = %s AND meal_type = %s AND food_name = %s
             """
             cursor.execute(check_query, (user_id, meal_type, food_name))
-            existing = cursor.fetchone()
+            if cursor.fetchone():
+                return jsonify({
+                    "message": f"'{food_name}' zaten '{meal_type}' öğününe eklenmiş.",
+                    "status": "duplicate"
+                }), 409  # HTTP 409: Conflict
 
-            if existing:
-                return jsonify({"message": "Bu yiyecek zaten eklenmiş"}), 409  # 409 Conflict
-
-            # Ekleme sorgusu
-            query = """
-                INSERT INTO user_meals (user_id, meal_type, food_name, calories, fat, carbs, protein)
+            # Yiyeceği veritabanına ekle
+            insert_query = """
+                INSERT INTO user_meals 
+                (user_id, meal_type, food_name, calories, fat, carbs, protein) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
-            cursor.execute(query, (user_id, meal_type, food_name, calories, fat, carbs, protein))
+            cursor.execute(insert_query, (user_id, meal_type, food_name, calories, fat, carbs, protein))
             connection.commit()
+            print("DEBUG - Yiyecek başarıyla eklendi.")
 
-        return jsonify({"message": "Yiyecek başarıyla kaydedildi"}), 200
+        return jsonify({
+            "message": f"'{food_name}' '{meal_type}' öğününe başarıyla eklendi.",
+            "status": "success"
+        }), 200
 
     except Exception as e:
         logging.error(f"Veritabanı hatası: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Sunucu hatası, lütfen tekrar deneyiniz."}), 500
+
     finally:
-        connection.close()
+        if connection:
+            connection.close()
+            print("DEBUG - Veritabanı bağlantısı kapatıldı.")
+
 
 
 #------------------------------------------------------------------------------------------
@@ -584,6 +599,9 @@ def get_profile(user_id):
         return jsonify({"error": str(e)}), 500
     finally:
         connection.close()
+
+
+
 
 # Fetch all comments with like status for the current user
 @app.route('/api/comments', methods=['GET'])

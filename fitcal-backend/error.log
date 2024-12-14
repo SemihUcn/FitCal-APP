@@ -1794,3 +1794,39 @@
 2024-12-15 01:58:41,628 - INFO - 127.0.0.1 - - [15/Dec/2024 01:58:41] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
 2024-12-15 01:58:47,535 - INFO - 127.0.0.1 - - [15/Dec/2024 01:58:47] "OPTIONS /api/food_search HTTP/1.1" 200 -
 2024-12-15 01:58:48,483 - INFO - 127.0.0.1 - - [15/Dec/2024 01:58:48] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
+2024-12-15 02:00:01,968 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 02:00:01,968 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 02:00:05,638 - INFO - 127.0.0.1 - - [15/Dec/2024 02:00:05] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:00:06,554 - INFO - 127.0.0.1 - - [15/Dec/2024 02:00:06] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
+2024-12-15 02:04:57,739 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 02:04:57,739 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 02:05:14,318 - INFO - 127.0.0.1 - - [15/Dec/2024 02:05:14] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 02:05:14,754 - INFO - 127.0.0.1 - - [15/Dec/2024 02:05:14] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 02:05:14,757 - INFO - 127.0.0.1 - - [15/Dec/2024 02:05:14] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:05:15,076 - INFO - 127.0.0.1 - - [15/Dec/2024 02:05:15] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:05:22,908 - INFO - 127.0.0.1 - - [15/Dec/2024 02:05:22] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:05:23,220 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-15 02:06:01,703 - INFO - 127.0.0.1 - - [15/Dec/2024 02:06:01] "[35m[1mPOST /api/food_search HTTP/1.1[0m" 500 -
+2024-12-15 02:08:26,535 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 02:08:26,535 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 02:08:36,679 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:36] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 02:08:37,132 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:37] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 02:08:37,137 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:37] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:08:37,463 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:37] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:08:43,640 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:43] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:08:43,952 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-15 02:08:59,541 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-15 02:08:59,542 - INFO - 127.0.0.1 - - [15/Dec/2024 02:08:59] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:09:12,607 - INFO - 127.0.0.1 - - [15/Dec/2024 02:09:12] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:09:12,927 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-15 02:09:24,493 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-15 02:09:24,494 - INFO - 127.0.0.1 - - [15/Dec/2024 02:09:24] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:10:01,389 - INFO - 127.0.0.1 - - [15/Dec/2024 02:10:01] "OPTIONS /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:10:01,638 - ERROR - Çeviri API hatasý: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2024-12-15 02:10:18,323 - ERROR - Arama geçmiþi kaydetme hatasý: (1146, "Table 'app_db.food_search_history' doesn't exist")
+2024-12-15 02:10:18,324 - INFO - 127.0.0.1 - - [15/Dec/2024 02:10:18] "POST /api/food_search HTTP/1.1" 200 -
+2024-12-15 02:10:26,365 - INFO - 127.0.0.1 - - [15/Dec/2024 02:10:26] "OPTIONS /api/save_food HTTP/1.1" 200 -
+2024-12-15 02:10:26,639 - INFO - 127.0.0.1 - - [15/Dec/2024 02:10:26] "POST /api/save_food HTTP/1.1" 200 -
