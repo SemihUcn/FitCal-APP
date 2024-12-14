@@ -819,6 +819,52 @@ def update_weight(user_id):
         if connection:
             connection.close()
 
+#---------------------------------------------------------------------------------------------------
+
+@app.route('/api/add_exercise_entry', methods=['POST'])
+def add_exercise_entry():
+    data = request.json
+    user_id = data.get('user_id')
+    name = data.get('name')
+    duration = data.get('duration')
+    calories = data.get('calories')
+
+    if not all([user_id, name, duration, calories]):
+        return jsonify({"error": "All fields (user_id, name, duration, calories) are required"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = "INSERT INTO exercise_entries (user_id, name, duration, calories) VALUES (%s, %s, %s, %s)"
+            cursor.execute(query, (user_id, name, duration, calories))
+            connection.commit()
+        return jsonify({"message": "Exercise entry added successfully"}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
+@app.route('/api/get_exercise_entries', methods=['GET'])
+def get_exercise_entries():
+    user_id = request.args.get('user_id')
+
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = "SELECT id, name, duration, calories FROM exercise_entries WHERE user_id = %s"
+            cursor.execute(query, (user_id,))
+            entries = cursor.fetchall()
+        return jsonify(entries), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
 
 
 

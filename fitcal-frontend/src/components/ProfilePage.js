@@ -88,7 +88,7 @@ const ProfilePage = () => {
       <p style={styles.detail}><strong>Başlangıç Kilo:</strong> {startingWeight} kg</p>
       <p style={styles.detail}><strong>Mevcut Kilo:</strong> {currentWeight} kg</p>
       <p style={styles.detail}><strong>Hedef Kilo:</strong> {targetWeight} kg</p>
-      <p style={styles.detail}><strong>Hedefe Kalan Kilo:</strong> {Math.max(0, targetWeight - currentWeight)} kg</p>
+      <p style={styles.detail}><strong>Hedefe Kalan Kilo:</strong> {Math.max(targetWeight-currentWeight, currentWeight - targetWeight)} kg</p>
 
       <div style={styles.updateWeightContainer}>
         <input

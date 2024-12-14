@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./ExercisePage.css";
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 const Exercises = ({ onClose }) => {
   const allExercises = [
@@ -14,6 +16,7 @@ const Exercises = ({ onClose }) => {
   const [durations, setDurations] = useState(
     allExercises.map(() => ({ hour: 0, minute: 0 }))
   );
+  const { userId } = useContext(UserContext);
 
   const [addedExercises, setAddedExercises] = useState([]); // Eklenen aktiviteler
 
@@ -41,19 +44,53 @@ const Exercises = ({ onClose }) => {
   };
 
   // Aktivite ekleme
-  const handleAddExercise = (index) => {
+  const handleAddExercise = async (index) => {
     const newExercise = {
-      name: exercises[index].name,
-      duration: `${durations[index].hour} saat ${durations[index].minute} dakika`,
-      calories: calculateCalories(index),
+        user_id: userId, // Replace with the logged-in user's ID
+        name: exercises[index].name,
+        duration: `${durations[index].hour} saat ${durations[index].minute} dakika`,
+        calories: calculateCalories(index),
     };
-    setAddedExercises([...addedExercises, newExercise]);
 
-    // Süreyi sıfırla
-    const newDurations = [...durations];
-    newDurations[index] = { hour: 0, minute: 0 };
-    setDurations(newDurations);
+    try {
+        const response = await fetch("http://127.0.0.1:5000/api/add_exercise_entry", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newExercise),
+        });
+
+        if (response.ok) {
+            fetchExerciseEntries(); // Refresh the list
+        } else {
+            console.error("Failed to add exercise entry");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+};
+const fetchExerciseEntries = async () => {
+  try {
+    const response = await fetch(`http://127.0.0.1:5000/api/get_exercise_entries?user_id=${userId}`);
+    if (!response.ok) throw new Error("Failed to fetch exercise entries");
+    const data = await response.json();
+    setAddedExercises(data);
+  } catch (error) {
+    console.error("Error fetching exercise entries:", error);
+  }
+};
+
+
+React.useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch(`http://127.0.0.1:5000/api/get_exercise_entries?user_id=${userId}`);
+    if (response.ok) {
+      const data = await response.json();
+      setAddedExercises(data);
+    }
   };
+  fetchData();
+}, []);
+
 
   return (
     <div className="exercise-page">
