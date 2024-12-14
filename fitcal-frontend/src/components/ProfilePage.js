@@ -1,45 +1,51 @@
 // ProfilePage.js
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('');
   const [profileData, setProfileData] = useState(null);
+  const { userId } = useContext(UserContext);
 
   useEffect(() => {
-    // Fetch profile data from the server
-    axios.get('http://localhost:5000/api/profile/1') // Replace '1' with dynamic user ID if needed
-      .then(response => {
+    axios
+      .get(`http://localhost:5000/api/profile/${userId}`)
+      .then((response) => {
+        console.log("DEBUG - Fetched Profile Data:", response.data);
         setProfileData(response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching profile data:', error);
       });
-  }, []);
+  }, [userId]);
+  
 
   const renderSection = () => {
     switch (activeSection) {
       case 'Hesap Detayları':
-        return (
-          <div style={styles.detailsContainer}>
-            <h3 style={styles.sectionTitle}>Hesap Detayları</h3>
-            {profileData ? (
-              <>
-                <p style={styles.detail}><strong>Email:</strong> {profileData.email}</p>
-                <p style={styles.detail}><strong>İsim Soyisim:</strong> {profileData.full_name}</p>
-                <p style={styles.detail}><strong>Boy:</strong> {profileData.height} cm</p>
-                <p style={styles.detail}><strong>Kilo:</strong> {profileData.weight} kg</p>
-                <p style={styles.detail}><strong>Cinsiyet:</strong> {profileData.gender}</p>
-              </>
-            ) : (
-              <p>Loading...</p>
-            )}
-          </div>
-        );
+  return (
+    <div style={styles.detailsContainer}>
+      <h3 style={styles.sectionTitle}>Hesap Detayları</h3>
+      {profileData ? (
+        <>
+          <p style={styles.detail}><strong>Email:</strong> {profileData.email}</p>
+          <p style={styles.detail}><strong>İsim Soyisim:</strong> {profileData.full_name}</p>
+          <p style={styles.detail}><strong>Boy:</strong> {profileData.height} cm</p>
+          <p style={styles.detail}><strong>Kilo:</strong> {profileData.weight} kg</p>
+          <p style={styles.detail}><strong>Cinsiyet:</strong> {profileData.gender}</p>
+          <p style={styles.detail}><strong>Aktivite Seviyesi:</strong> {profileData.activity_level || 'Bilinmiyor'}</p>
+          <p style={styles.detail}><strong>Egzersiz Sıklığı:</strong> {profileData.exercise_frequency || 'Bilinmiyor'}</p>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+
       case 'Benim Kilom':
         return (
           <div style={styles.weightContainer}>

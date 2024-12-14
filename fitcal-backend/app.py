@@ -558,23 +558,31 @@ def get_profile(user_id):
         connection = get_db_connection()
         with connection.cursor() as cursor:
             query = """
-                SELECT email, CONCAT(name, ' ', surname) AS full_name, height, weight, gender
-                FROM users
-                WHERE id = %s
+                SELECT 
+                    u.email, 
+                    CONCAT(u.name, ' ', u.surname) AS full_name, 
+                    u.height, 
+                    u.weight, 
+                    u.gender, 
+                    COALESCE(up.activity_level, 'Not Specified') AS activity_level, 
+                    COALESCE(up.exercise_frequency, 'Not Specified') AS exercise_frequency
+                FROM users u
+                LEFT JOIN user_profiles up ON u.id = up.user_id
+                WHERE u.id = %s
             """
             cursor.execute(query, (user_id,))
-            user = cursor.fetchone()
-            
-            if user:
-                return jsonify(user), 200
+            result = cursor.fetchone()
+
+            print(f"DEBUG - Query Result: {result}")  # Debugging
+
+            if result:
+                return jsonify(result), 200
             else:
                 return jsonify({"error": "User not found"}), 404
     except pymysql.MySQLError as e:
         return jsonify({"error": str(e)}), 500
     finally:
         connection.close()
-
-
 
 # Fetch all comments with like status for the current user
 @app.route('/api/comments', methods=['GET'])
