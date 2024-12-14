@@ -1527,3 +1527,25 @@
 2024-12-14 22:51:28,942 - INFO - 127.0.0.1 - - [14/Dec/2024 22:51:28] "GET /api/weight/7 HTTP/1.1" 200 -
 2024-12-14 22:51:33,469 - INFO - 127.0.0.1 - - [14/Dec/2024 22:51:33] "OPTIONS /api/weight/7 HTTP/1.1" 200 -
 2024-12-14 22:51:33,766 - INFO - 127.0.0.1 - - [14/Dec/2024 22:51:33] "POST /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 22:57:24,820 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-14 22:57:24,820 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-14 22:57:35,858 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:35] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 22:57:36,277 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:36] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 22:57:36,281 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:36] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 22:57:36,597 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:36] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 22:57:38,186 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:38] "GET /api/profile/7 HTTP/1.1" 200 -
+2024-12-14 22:57:38,505 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:38] "GET /api/profile/7 HTTP/1.1" 200 -
+2024-12-14 22:57:39,689 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:39] "GET /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 22:57:49,169 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:49] "OPTIONS /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 22:57:49,443 - INFO - 127.0.0.1 - - [14/Dec/2024 22:57:49] "POST /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 23:00:50,054 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:50] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-14 23:00:50,503 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:50] "POST /api/login HTTP/1.1" 200 -
+2024-12-14 23:00:50,507 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:50] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-14 23:00:50,824 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:50] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-14 23:00:52,438 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:52] "GET /api/profile/7 HTTP/1.1" 200 -
+2024-12-14 23:00:52,755 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:52] "GET /api/profile/7 HTTP/1.1" 200 -
+2024-12-14 23:00:53,418 - INFO - 127.0.0.1 - - [14/Dec/2024 23:00:53] "GET /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 23:01:01,145 - INFO - 127.0.0.1 - - [14/Dec/2024 23:01:01] "OPTIONS /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 23:01:01,434 - INFO - 127.0.0.1 - - [14/Dec/2024 23:01:01] "POST /api/weight/7 HTTP/1.1" 200 -
+2024-12-14 23:01:04,819 - INFO - 127.0.0.1 - - [14/Dec/2024 23:01:04] "POST /api/weight/7 HTTP/1.1" 200 -
