@@ -112,12 +112,12 @@ def register_user():
             if cursor.fetchone():
                 return jsonify({"error": "Bu e-posta adresi zaten kullanılıyor"}), 409
 
-            # Kullanıcıyı ekleme
+            # Kullanıcıyı ekleme (starting_weight = weight)
             query = """
-                INSERT INTO users (name, surname, email, password, weight, height, age, gender)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                INSERT INTO users (name, surname, email, password, weight, starting_weight, height, age, gender)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
-            cursor.execute(query, (name, surname, email, hashed_password, weight, height, age, gender))
+            cursor.execute(query, (name, surname, email, hashed_password, weight, weight, height, age, gender))
             connection.commit()
         return jsonify({"message": "User registered successfully"}), 200
 
@@ -138,6 +138,7 @@ def register_user():
     finally:
         if connection:
             connection.close()
+
 
 #------------------------------------------------------------------------------------------
 
@@ -741,6 +742,84 @@ def get_water():
         return jsonify({"error": str(e)}), 500
     finally:
         connection.close()
+
+#####---------------------------------------------------------------------------------------------- Ayarlar benim kilom kısmı
+
+@app.route('/api/weight/<int:user_id>', methods=['GET'])
+def get_weight_data(user_id):
+    """
+    Fetch current weight, starting weight, and target weight for the user.
+    """
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = """
+                SELECT 
+                    u.weight AS current_weight,  -- Use 'weight' instead of 'current_weight'
+                    u.starting_weight, 
+                    up.target_weight 
+                FROM users u
+                LEFT JOIN user_profiles up ON u.id = up.user_id
+                WHERE u.id = %s
+            """
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+            if result:
+                return jsonify({
+                    "current_weight": result['current_weight'] or 0,
+                    "starting_weight": result['starting_weight'] or 0,
+                    "target_weight": result['target_weight'] or 0
+                }), 200
+            return jsonify({"error": "Weight data not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        connection.close()
+
+
+
+
+
+#####-----------------------------------------------------------------
+
+@app.route('/api/weight/<int:user_id>', methods=['POST'])
+def update_weight(user_id):
+    """
+    Update the weight and/or target weight for the user.
+    """
+    data = request.json
+    new_weight = data.get('current_weight')  # Expect 'current_weight' from the frontend
+    new_target_weight = data.get('target_weight')
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            if new_weight is not None:
+                # Update only the current weight
+                cursor.execute(
+                    """
+                    UPDATE users 
+                    SET weight = %s
+                    WHERE id = %s
+                    """,
+                    (new_weight, user_id)
+                )
+            if new_target_weight is not None:
+                # Update the target weight in the user_profiles table
+                cursor.execute(
+                    "UPDATE user_profiles SET target_weight = %s WHERE user_id = %s",
+                    (new_target_weight, user_id)
+                )
+            connection.commit()
+            return jsonify({"message": "Weight data updated successfully"}), 200
+    except Exception as e:
+        logging.error(f"Error updating weight: {e}")
+        return jsonify({"error": str(e)}), 500
+    finally:
+        if connection:
+            connection.close()
+
+
 
 
 

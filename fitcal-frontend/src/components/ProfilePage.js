@@ -1,16 +1,19 @@
-// ProfilePage.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
-
-
 
 const ProfilePage = () => {
   const [activeSection, setActiveSection] = useState('');
   const [profileData, setProfileData] = useState(null);
   const { userId } = useContext(UserContext);
 
+  // State for weight data
+  const [currentWeight, setCurrentWeight] = useState(0);
+  const [targetWeight, setTargetWeight] = useState(0);
+  const [startingWeight, setStartingWeight] = useState(0);
+  const [newWeight, setNewWeight] = useState('');
+
+  // Fetch general profile data
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/profile/${userId}`)
@@ -22,65 +25,85 @@ const ProfilePage = () => {
         console.error('Error fetching profile data:', error);
       });
   }, [userId]);
-  
 
+  // Fetch weight data
+  useEffect(() => {
+    if (activeSection === 'Benim Kilom') {
+      axios
+        .get(`http://localhost:5000/api/weight/${userId}`)
+        .then((response) => {
+          console.log("DEBUG - Fetched Weight Data:", response.data); // Debugging response
+          const { current_weight, starting_weight, target_weight } = response.data;
+          setCurrentWeight(current_weight);
+          setStartingWeight(starting_weight);
+          setTargetWeight(target_weight);
+        })
+        .catch((error) => {
+          console.error('Error fetching weight data:', error);
+        });
+    }
+  }, [userId, activeSection]);
+  
+  const handleUpdateWeight = () => {
+    console.log("DEBUG - Sending Weight Data:", newWeight); // Add this line
+  
+    axios
+      .post(`http://localhost:5000/api/weight/${userId}`, { current_weight: newWeight })
+      .then((response) => {
+        console.log("DEBUG - Response:", response.data); // Add this line
+        alert('Weight updated successfully');
+        setCurrentWeight(newWeight); // Update UI with new weight
+        setNewWeight(''); // Clear input
+      })
+      .catch((error) => {
+        console.error('Error updating weight:', error);
+        alert('Failed to update weight');
+      });
+  };
+  
   const renderSection = () => {
     switch (activeSection) {
       case 'Hesap Detayları':
-  return (
-    <div style={styles.detailsContainer}>
-      <h3 style={styles.sectionTitle}>Hesap Detayları</h3>
-      {profileData ? (
-        <>
-          <p style={styles.detail}><strong>Email:</strong> {profileData.email}</p>
-          <p style={styles.detail}><strong>İsim Soyisim:</strong> {profileData.full_name}</p>
-          <p style={styles.detail}><strong>Boy:</strong> {profileData.height} cm</p>
-          <p style={styles.detail}><strong>Kilo:</strong> {profileData.weight} kg</p>
-          <p style={styles.detail}><strong>Cinsiyet:</strong> {profileData.gender}</p>
-          <p style={styles.detail}><strong>Aktivite Seviyesi:</strong> {profileData.activity_level || 'Bilinmiyor'}</p>
-          <p style={styles.detail}><strong>Egzersiz Sıklığı:</strong> {profileData.exercise_frequency || 'Bilinmiyor'}</p>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
+        return (
+          <div style={styles.detailsContainer}>
+            <h3 style={styles.sectionTitle}>Hesap Detayları</h3>
+            {profileData ? (
+              <>
+                <p style={styles.detail}><strong>Email:</strong> {profileData.email}</p>
+                <p style={styles.detail}><strong>İsim Soyisim:</strong> {profileData.full_name}</p>
+                <p style={styles.detail}><strong>Boy:</strong> {profileData.height} cm</p>
+                <p style={styles.detail}><strong>Kilo:</strong> {profileData.weight} kg</p>
+                <p style={styles.detail}><strong>Cinsiyet:</strong> {profileData.gender}</p>
+              </>
+            ) : (
+              <p>Loading...</p>
+            )}
+          </div>
+        );
 
       case 'Benim Kilom':
         return (
           <div style={styles.weightContainer}>
-            <h3 style={styles.sectionTitle}>Mevcut Ağırlığın</h3>
-            <div style={styles.weightCard}>
-              <h1 style={styles.currentWeight}>84,0 kg</h1>
-              <p style={styles.weighingInfo}>En son Tartılma - 886 gün önce</p>
-              <div style={styles.goalInfo}>
-                <p><strong>Başlangıç ağırlığı:</strong> 84,0 kg</p>
-                <p><strong>Hedef ağırlık:</strong> 74,0 kg</p>
-              </div>
-              <div style={styles.progressInfo}>
-                <p><strong>Bugüne kadar kayıp:</strong> 0 kg</p>
-                <p><strong>Geriye kalan:</strong> 10 kg</p>
-              </div>
+            <h3 style={styles.sectionTitle}>Benim Kilom</h3>
+            <p style={styles.detail}><strong>Başlangıç Kilo:</strong> {startingWeight} kg</p>
+            <p style={styles.detail}><strong>Mevcut Kilo:</strong> {currentWeight} kg</p>
+            <p style={styles.detail}><strong>Hedef Kilo:</strong> {targetWeight} kg</p>
+
+            <div style={styles.updateWeightContainer}>
+              <input
+                type="number"
+                placeholder="Yeni Kilo Girin"
+                value={newWeight}
+                onChange={(e) => setNewWeight(e.target.value)}
+                style={styles.weightInput}
+              />
+              <button onClick={handleUpdateWeight} style={styles.updateButton}>
+                Güncelle
+              </button>
             </div>
-            <div style={styles.chartPlaceholder}>Burada ağırlık değişimi grafiği olacak.</div>
           </div>
         );
-      case 'Günlük Ayarları':
-        return (
-          <div style={styles.settingsContainer}>
-            <h3 style={styles.sectionTitle}>Günlük Ayarları</h3>
-            <div style={styles.settingItem}><strong>Enerji Birimi:</strong> Kalori</div>
-            <div style={styles.settingItem}><strong>Ağırlık Birimi:</strong> Kilogram</div>
-            <div style={styles.settingItem}><strong>TGD:</strong> 2900 kal</div>
-            <div style={styles.settingItem}><strong>Öğünleri Özelleştir:</strong> <span role="img" aria-label="lock">🔒</span></div>
-            <div style={styles.settingItem}><strong>Rozet Bildirimleri:</strong> ✅</div>
-            <div style={styles.settingItem}><strong>Seri Gösterimi:</strong> ✅</div>
-            <div style={styles.settingItem}><strong>Su İçme Takipçisi:</strong> <span role="img" aria-label="lock">🔒</span></div>
-            <div style={styles.settingItem}><strong>Egzersiz Günlüğü:</strong> ✅</div>
-            <div style={styles.settingItem}><strong>Uygulamalar & Cihazlar:</strong> fatsecret (Varsayılan)</div>
-            <div style={styles.settingItem}><strong>Sağlık App:</strong> Verilerinizi Sağlık ile paylaş</div>
-          </div>
-        );
+
       default:
         return <p style={styles.infoText}>Bir seçenek seçiniz.</p>;
     }
@@ -92,9 +115,6 @@ const ProfilePage = () => {
       <div style={styles.buttonContainer}>
         <button style={styles.menuButton} onClick={() => setActiveSection('Hesap Detayları')}>Hesap Detayları</button>
         <button style={styles.menuButton} onClick={() => setActiveSection('Benim Kilom')}>Benim Kilom</button>
-        <button style={styles.menuButton} onClick={() => setActiveSection('Genel Ayarlar')}>Genel Ayarlar</button>
-        <button style={styles.menuButton} onClick={() => setActiveSection('Topluluk Ayarları')}>Topluluk Ayarları</button>
-        <button style={styles.menuButton} onClick={() => setActiveSection('Günlük Ayarları')}>Günlük Ayarları</button>
       </div>
       <div style={styles.contentContainer}>{renderSection()}</div>
     </div>
@@ -133,9 +153,6 @@ const styles = {
     transition: 'background-color 0.3s',
     flex: '1 0 auto',
   },
-  menuButtonHover: {
-    backgroundColor: '#0056b3',
-  },
   contentContainer: {
     marginTop: '30px',
     padding: '20px',
@@ -157,6 +174,31 @@ const styles = {
     fontSize: '16px',
     color: '#555',
     marginBottom: '10px',
+  },
+  weightContainer: {
+    padding: '20px',
+  },
+  updateWeightContainer: {
+    marginTop: '20px',
+    display: 'flex',
+    gap: '10px',
+    alignItems: 'center',
+  },
+  weightInput: {
+    padding: '10px',
+    fontSize: '16px',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    width: '150px',
+  },
+  updateButton: {
+    padding: '10px 20px',
+    fontSize: '16px',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
   },
   infoText: {
     fontSize: '16px',
