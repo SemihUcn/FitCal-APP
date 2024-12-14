@@ -3,7 +3,7 @@ import './MealSearchPage.css';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
-const MealSearchPage = ({ onClose }) => {
+const MealSearchPage = ({ mealType, onClose }) => {
   const [activeTab, setActiveTab] = useState('yemek'); // Active tab state
   const [searchQuery, setSearchQuery] = useState(''); // Search query state
   const [apiResults, setApiResults] = useState([]); // API results
@@ -132,6 +132,7 @@ const MealSearchPage = ({ onClose }) => {
 
   const addMeal = async (meal) => {
     const calculatedValues = calculateValues(meal);
+    const foodDescription = `Calories: ${calculatedValues.calorie}kcal | Fat: ${calculatedValues.fat}g | Carbs: ${calculatedValues.carb}g | Protein: ${calculatedValues.protein}g`;
     try {
       const response = await fetch("http://localhost:5000/api/save_food", {
         method: "POST",
@@ -140,9 +141,9 @@ const MealSearchPage = ({ onClose }) => {
         },
         body: JSON.stringify({
           user_id: userId,
-          meal_type: "kahvaltı",
+          meal_type: mealType,
           food_name: meal.name,
-          food_description: meal.description || "", // Optional: keep it for display purposes
+          food_description: foodDescription, // Optional: keep it for display purposes
           protein: Number(calculatedValues.protein),
           carb: Number(calculatedValues.carb),
           fat: Number(calculatedValues.fat),

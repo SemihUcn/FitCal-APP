@@ -49,17 +49,15 @@ logging.basicConfig(filename='error.log', level=logging.ERROR,
 #------------------------------------------------------------------------------------------
 
 def parse_food_description(food_description):
-    """
-    food_description içindeki besin değerlerini ayrıştırır.
-    """
     try:
         print(f"DEBUG - Gelen food_description: {food_description}")
 
-        # Eğer food_description boşsa, hata döner
         if not food_description or len(food_description.strip()) == 0:
             print("ERROR - food_description boş!")
+            # Default to 0 if empty
             return 0, 0, 0, 0
 
+        # Attempt to parse the food_description
         parts = food_description.split('|')
         calories = fat = carbs = protein = 0
 
@@ -79,6 +77,8 @@ def parse_food_description(food_description):
 
     except Exception as e:
         print(f"Hata: {e}")
+        # Log error and default to 0
+        logging.error(f"parse_food_description error: {e}")
         return 0, 0, 0, 0
 
 
