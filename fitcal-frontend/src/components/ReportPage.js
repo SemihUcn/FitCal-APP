@@ -1,16 +1,20 @@
-// ReportPage.js
 import React, { useState, useEffect, useContext } from 'react';
 import './ReportPage.css';
 import { UserContext } from '../context/UserContext';
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ReportPage = () => {
   const { userId } = useContext(UserContext);
   const [activeSection, setActiveSection] = useState('none');
   const [calorieData, setCalorieData] = useState([]);
   const [totalCalories, setTotalCalories] = useState(0);
-  const [error, setError] = useState('');
+  const [calorieError, setCalorieError] = useState('');
+  const [macroData, setMacroData] = useState(null);
+  const [macroError, setMacroError] = useState('');
 
-  // API'den veri çekme fonksiyonu
+  // Fetch Calorie Summary
   const fetchCalorieSummary = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/calorie_summary/${userId}`);
@@ -20,32 +24,82 @@ const ReportPage = () => {
       setCalorieData(data.calorie_summary);
       setTotalCalories(data.total_calories);
     } catch (err) {
-      setError(err.message);
+      setCalorieError(err.message);
     }
   };
 
+  // Fetch Macro Summary
+  const fetchMacroSummary = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/macro_summary/${userId}`);
+      if (!response.ok) throw new Error('Error fetching macro data.');
+      const data = await response.json();
+      setMacroData(data);
+    } catch (err) {
+      setMacroError(err.message);
+    }
+  };
+
+  // Trigger API calls based on the active section
   useEffect(() => {
     if (activeSection === 'kaloriler') {
       fetchCalorieSummary();
+    } else if (activeSection === 'makrolar') {
+      fetchMacroSummary();
     }
   }, [activeSection]);
 
+  // Render the active section
   const renderSection = () => {
     switch (activeSection) {
-      case 'kaloriler':
+      case "kaloriler":
+        const chartData = {
+          labels: calorieData.map((meal) => meal.meal_type),
+          datasets: [
+            {
+              data: calorieData.map((meal) => meal.calories),
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
+              hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#4BC0C0",
+              ],
+            },
+          ],
+        };
+      
         return (
           <div className="report-content">
             <h2 className="section-title">Kaloriler</h2>
-            {error && <p className="error-message">{error}</p>}
-            {!error && (
+            {calorieError && <p className="error-message">{calorieError}</p>}
+            {!calorieError && (
               <>
                 <div className="calorie-overview">
                   <p className="calorie-text">
                     Günlük Toplam: {totalCalories} kcal | Hedef: 2900 kcal
                   </p>
-                  <div className="calorie-chart">
-                    <div className="chart-placeholder">Kalori Grafiği Burada</div>
+                  <div
+                    className="calorie-chart"
+                    style={{
+                      width: "300px",
+                      height: "300px",
+                      margin: "0 auto",
+                    }}
+                  >
+                    <Doughnut
+                      data={chartData}
+                      options={{
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: {
+                            position: "bottom",
+                          },
+                        },
+                      }}
+                    />
                   </div>
+      
                   <ul className="meal-summary">
                     {calorieData.map((meal) => (
                       <li key={meal.meal_type}>
@@ -59,20 +113,38 @@ const ReportPage = () => {
             )}
           </div>
         );
-      case 'makrolar':
-        return (
-          <div className="report-content">
-            <h2 className="section-title">Makrolar</h2>
-            <div className="macro-chart">
-              <div className="chart-placeholder">Makro Grafiği Burada</div>
+      
+
+        case 'makrolar':
+          return (
+            <div className="report-content">
+              <h2 className="section-title">Makrolar</h2>
+              {macroError && <p className="error-message">{macroError}</p>}
+              {macroData && (
+                <>
+                  <div className="macro-chart">
+                    <div className="chart-placeholder">Makro Grafiği Burada</div>
+                  </div>
+                  <ul className="macro-summary">
+                    <li>
+                      <span className="macro-color carbs"></span>
+                      Karbonhidrat: {macroData.carbs.consumed.toFixed(2)}  %
+                    </li>
+                    <li>
+                      <span className="macro-color fats"></span>
+                      Yağ: {macroData.fats.consumed.toFixed(2)}  %
+                    </li>
+                    <li>
+                      <span className="macro-color proteins"></span>
+                      Protein: {macroData.proteins.consumed.toFixed(2)} %
+                    </li>
+                  </ul>
+                </>
+              )}
             </div>
-            <ul className="macro-summary">
-              <li><span className="macro-color carbs"></span>Karbonhidrat: 0% / 50%</li>
-              <li><span className="macro-color fats"></span>Yağ: 0% / 30%</li>
-              <li><span className="macro-color proteins"></span>Protein: 0% / 20%</li>
-            </ul>
-          </div>
-        );
+          );
+        
+
       case 'besinler':
         return (
           <div className="report-content">
@@ -115,6 +187,7 @@ const ReportPage = () => {
             </table>
           </div>
         );
+
       default:
         return <p className="report-text">Bir kategori seçerek detayları görüntüleyin.</p>;
     }

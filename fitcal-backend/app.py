@@ -929,6 +929,58 @@ def calorie_summary(user_id):
         connection.close() 
 
 
+@app.route('/api/macro_summary/<int:user_id>', methods=['GET'])
+def macro_summary(user_id):
+    """
+    Return macro data with gram values and percentages.
+    """
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Query total macro values and total calories
+            query = """
+                SELECT 
+                    SUM(carbs) AS total_carbs,
+                    SUM(fat) AS total_fats,
+                    SUM(protein) AS total_proteins,
+                    SUM(calories) AS total_calories
+                FROM user_meals
+                WHERE user_id = %s
+            """
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+
+            total_calories = result["total_calories"] or 1  # Avoid division by zero
+
+            # Macro calorie contributions
+            macro_data = {
+                "carbs": {
+                    "grams": result["total_carbs"] or 0,
+                    "consumed": round((result["total_carbs"] * 4 / total_calories) * 100, 2) if total_calories else 0,
+                    "target": 50
+                },
+                "fats": {
+                    "grams": result["total_fats"] or 0,
+                    "consumed": round((result["total_fats"] * 9 / total_calories) * 100, 2) if total_calories else 0,
+                    "target": 30
+                },
+                "proteins": {
+                    "grams": result["total_proteins"] or 0,
+                    "consumed": round((result["total_proteins"] * 4 / total_calories) * 100, 2) if total_calories else 0,
+                    "target": 20
+                }
+            }
+
+        return jsonify(macro_data), 200
+    except Exception as e:
+        logging.error(f"Error fetching macro summary: {e}")
+        return jsonify({"error": "Server error", "details": str(e)}), 500
+    finally:
+        connection.close()
+
+
+
+
 
 
 
