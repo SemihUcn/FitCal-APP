@@ -221,7 +221,7 @@ const ReportPage = () => {
           case "besinler":
             return (
                 <div className="report-content">
-                    <h2 className="section-title">Besinler</h2>
+                    <h2 className="section-title">Besin Gramajları</h2>
                     {macroError && <p className="error-message">{macroError}</p>}
                     {totalMacros && (
                         <table className="nutrition-table">

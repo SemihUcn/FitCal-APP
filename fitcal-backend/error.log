@@ -2208,3 +2208,47 @@
 2024-12-15 04:48:03,291 - INFO - 127.0.0.1 - - [15/Dec/2024 04:48:03] "POST /api/total_macros HTTP/1.1" 200 -
 2024-12-15 04:48:04,778 - INFO - 127.0.0.1 - - [15/Dec/2024 04:48:04] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
 2024-12-15 04:50:14,811 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:14] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:50:26,741 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 04:50:26,741 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 04:50:39,748 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:39] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 04:50:40,175 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:40] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 04:50:40,180 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:40] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 04:50:40,502 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:40] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 04:50:43,393 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:43] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:50:45,038 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:45] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:50:46,846 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:46] "OPTIONS /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:50:47,168 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:47] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:50:48,336 - INFO - 127.0.0.1 - - [15/Dec/2024 04:50:48] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:52:01,980 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:01] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:52:01,994 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:01] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:52:05,401 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:05] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:52:05,705 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:05] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:52:06,448 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:06] "OPTIONS /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:52:06,462 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:06] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:52:06,720 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:06] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:52:06,831 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:06] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:52:07,136 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:07] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:52:08,006 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:08] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:52:08,006 - INFO - 127.0.0.1 - - [15/Dec/2024 04:52:08] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:11,971 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:11] "OPTIONS /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:11,985 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:11] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:53:12,245 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:12] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:38,670 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:38] "OPTIONS /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:38,978 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:38] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:53:38,978 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:38] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:58,981 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:58] "OPTIONS /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:53:58,998 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:58] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:53:59,244 - INFO - 127.0.0.1 - - [15/Dec/2024 04:53:59] "POST /api/total_macros HTTP/1.1" 200 -
+2024-12-15 04:54:03,249 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:03] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:03,551 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:03] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:54:04,562 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:04] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:04,574 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:04] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 04:54:08,508 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:08] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:08,845 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:08] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:25,705 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:25] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:26,033 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:26] "GET /api/calculate_target_calories/5 HTTP/1.1" 200 -
+2024-12-15 04:54:27,417 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:27] "GET /api/comments HTTP/1.1" 200 -
+2024-12-15 04:54:27,724 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:27] "GET /api/comments HTTP/1.1" 200 -
+2024-12-15 04:54:28,270 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:28] "GET /api/profile/5 HTTP/1.1" 200 -
+2024-12-15 04:54:28,587 - INFO - 127.0.0.1 - - [15/Dec/2024 04:54:28] "GET /api/profile/5 HTTP/1.1" 200 -
