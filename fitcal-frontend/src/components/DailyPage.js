@@ -10,7 +10,7 @@ const DailyPage = () => {
   const [showWaterPage, setShowWaterPage] = useState(false); // Su takipçisi sayfası kontrolü
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
-  const [selectedMealType, setSelectedMealType] = useState("");
+  const [activeMealType, setActiveMealType] = useState(""); // Aktif öğün tipi
 
   useEffect(() => {
     const today = new Date();
@@ -32,32 +32,27 @@ const DailyPage = () => {
     setShowCalendar(false);
   };
 
-  const openExercisePage = () => {
-    setShowExercisePage(true);
+  const handleOpenMealSearch = (mealType) => {
+    setActiveMealType(mealType);
+    setShowMealSearch(true);
   };
 
-  const openMealSearch = (mealType) => {
-    setSelectedMealType(mealType);
-    setShowMealSearch(true);
+  const openExercisePage = () => {
+    setShowExercisePage(true);
   };
 
   const openWaterPage = () => {
     setShowWaterPage(true);
   };
 
+  // Page rendering logic
   if (showExercisePage) {
     return <ExercisePage onClose={() => setShowExercisePage(false)} />;
   }
 
   if (showMealSearch) {
-    return (
-      <MealSearchPage
-        mealType={selectedMealType}
-        onClose={() => setShowMealSearch(false)}
-      />
-    );
+    return <MealSearchPage mealType={activeMealType} onClose={() => setShowMealSearch(false)} />;
   }
-  
 
   if (showWaterPage) {
     return <WaterPage onClose={() => setShowWaterPage(false)} />;
@@ -82,43 +77,23 @@ const DailyPage = () => {
         </div>
       )}
 
-<main className="meal-sections">
-  <div className="meal-section-horizontal">
-    <span className="meal-name">Kahvaltı</span>
-    <button
-      className="add-meal-button-horizontal"
-      onClick={() => openMealSearch("kahvaltı")} // Pass "kahvaltı" as mealType
-    >
-      +
-    </button>
-  </div>
-  <div className="meal-section-horizontal">
-    <span className="meal-name">Öğle Yemeği</span>
-    <button
-      className="add-meal-button-horizontal"
-      onClick={() => openMealSearch("öğle yemeği")} // Pass "öğle yemeği" as mealType
-    >
-      +
-    </button>
-  </div>
-  <div className="meal-section-horizontal">
-    <span className="meal-name">Akşam Yemeği</span>
-    <button
-      className="add-meal-button-horizontal"
-      onClick={() => openMealSearch("akşam yemeği")} // Pass "akşam yemeği" as mealType
-    >
-      +
-    </button>
-  </div>
-  <div className="meal-section-horizontal">
-    <span className="meal-name">Aperatifler</span>
-    <button
-      className="add-meal-button-horizontal"
-      onClick={() => openMealSearch("aperatifler")} // Pass "aperatifler" as mealType
-    >
-      +
-    </button>
-  </div>
+      <main className="meal-sections">
+        {[
+          { name: "Kahvaltı", type: "kahvaltı" },
+          { name: "Öğle Yemeği", type: "öğle" },
+          { name: "Akşam Yemeği", type: "akşam" },
+          { name: "Aperatifler", type: "aperatifler" },
+        ].map((meal) => (
+          <div className="meal-section-horizontal" key={meal.type}>
+            <span className="meal-name">{meal.name}</span>
+            <button
+              className="add-button"
+              onClick={() => handleOpenMealSearch(meal.type)}
+            >
+              +
+            </button>
+          </div>
+        ))}
 
         {/* Egzersiz Ekle Butonu */}
         <div className="meal-section-horizontal">

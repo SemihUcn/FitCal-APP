@@ -4,6 +4,216 @@ import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
 const MealSearchPage = ({ mealType, onClose }) => {
+  const recipes = {
+    kahvaltı: [
+      {
+        name: "Pankekli Yumurta",
+        description: "Protein açısından zengin, enerji verici bir kahvaltı seçeneği.",
+        ingredients: [
+          "2 yumurta",
+          "2 yemek kaşığı yulaf ezmesi",
+          "1 dilim muz",
+          "1 tutam tarçın",
+        ],
+        nutrition: {
+          protein: "18g",
+          carb: "20g",
+          fat: "8g",
+          calorie: "280 kcal",
+        },
+      },
+      {
+        name: "Avokadolu Tam Buğday Tostu",
+        description: "Sağlıklı yağlar ve tam tahıl içeren bir kahvaltı.",
+        ingredients: [
+          "2 dilim tam buğday ekmeği",
+          "Yarım avokado",
+          "1 haşlanmış yumurta",
+          "1 tutam çörek otu",
+        ],
+        nutrition: {
+          protein: "12g",
+          carb: "22g",
+          fat: "10g",
+          calorie: "290 kcal",
+        },
+      },
+      {
+        name: "Smoothie Bowl",
+        description: "Renkli ve besleyici bir kahvaltı alternatifi.",
+        ingredients: [
+          "1 dondurulmuş muz",
+          "1 avuç yaban mersini",
+          "1 yemek kaşığı chia tohumu",
+          "Yarım su bardağı süt (badem veya yulaf sütü)",
+        ],
+        nutrition: {
+          protein: "8g",
+          carb: "30g",
+          fat: "5g",
+          calorie: "240 kcal",
+        },
+      },
+    ],
+  
+    öğle: [
+      {
+        name: "Izgara Tavuklu Kinoa Salatası",
+        description: "Düşük yağlı, yüksek proteinli ve doyurucu bir öğle yemeği.",
+        ingredients: [
+          "100g ızgara tavuk",
+          "1 su bardağı haşlanmış kinoa",
+          "Salatalık, domates, marul",
+          "1 yemek kaşığı zeytinyağı",
+        ],
+        nutrition: {
+          protein: "35g",
+          carb: "40g",
+          fat: "8g",
+          calorie: "400 kcal",
+        },
+      },
+      {
+        name: "Ton Balıklı Nohut Salatası",
+        description: "Yüksek protein ve lif içeriği ile doyurucu bir seçenek.",
+        ingredients: [
+          "1 kutu ton balığı (suda)",
+          "Yarım su bardağı haşlanmış nohut",
+          "Marul, roka, kırmızı soğan",
+          "Yarım limon suyu",
+        ],
+        nutrition: {
+          protein: "30g",
+          carb: "25g",
+          fat: "5g",
+          calorie: "350 kcal",
+        },
+      },
+      {
+        name: "Hindi Köfte ve Sebze Tabağı",
+        description: "Düşük yağlı, sağlıklı bir protein kaynağı.",
+        ingredients: [
+          "150g hindi köfte",
+          "Buharda pişirilmiş brokoli, havuç, kabak",
+          "1 yemek kaşığı zeytinyağı",
+        ],
+        nutrition: {
+          protein: "32g",
+          carb: "20g",
+          fat: "7g",
+          calorie: "370 kcal",
+        },
+      },
+    ],
+  
+    akşam: [
+      {
+        name: "Fırında Somon ve Kuşkonmaz",
+        description: "Omega-3 yağ asitleri bakımından zengin sağlıklı bir akşam yemeği.",
+        ingredients: [
+          "150g somon fileto",
+          "5-6 dal kuşkonmaz",
+          "1 yemek kaşığı zeytinyağı",
+          "Tuz ve karabiber",
+        ],
+        nutrition: {
+          protein: "32g",
+          carb: "10g",
+          fat: "15g",
+          calorie: "400 kcal",
+        },
+      },
+      {
+        name: "Fırında Tavuk ve Tatlı Patates",
+        description: "Düşük yağlı, karbonhidrat ve protein dengesi mükemmel bir akşam yemeği.",
+        ingredients: [
+          "150g tavuk göğsü",
+          "1 orta boy tatlı patates",
+          "1 tutam kekik",
+          "1 yemek kaşığı zeytinyağı",
+        ],
+        nutrition: {
+          protein: "35g",
+          carb: "30g",
+          fat: "8g",
+          calorie: "410 kcal",
+        },
+      },
+      {
+        name: "Sebzeli Mercimek Yemeği",
+        description: "Bitkisel protein kaynağı olan doyurucu bir seçenek.",
+        ingredients: [
+          "1 su bardağı yeşil mercimek",
+          "1 havuç",
+          "1 kabak",
+          "1 yemek kaşığı zeytinyağı",
+        ],
+        nutrition: {
+          protein: "18g",
+          carb: "35g",
+          fat: "6g",
+          calorie: "320 kcal",
+        },
+      },
+    ],
+  
+  
+    aperatifler: [
+      {
+        name: "Protein Bar",
+        description: "Hızlı bir enerji ve protein kaynağı olarak ideal bir atıştırmalık.",
+        ingredients: [
+          "1 su bardağı yulaf ezmesi",
+          "2 yemek kaşığı fıstık ezmesi",
+          "1 yemek kaşığı bal",
+          "1 ölçek protein tozu",
+        ],
+        nutrition: {
+          protein: "20g",
+          carb: "15g",
+          fat: "6g",
+          calorie: "200 kcal",
+        },
+      },
+      {
+        name: "Yoğurt ve Badem Karışımı",
+        description: "Protein ve sağlıklı yağ içeren hafif bir atıştırmalık.",
+        ingredients: [
+          "1 küçük kase yoğurt",
+          "1 avuç çiğ badem",
+          "1 çay kaşığı tarçın",
+        ],
+        nutrition: {
+          protein: "12g",
+          carb: "10g",
+          fat: "8g",
+          calorie: "190 kcal",
+        },
+      },
+      {
+        name: "Elmalı Chia Puding",
+        description: "Tatlı isteğini sağlıklı bir şekilde bastırmak için ideal.",
+        ingredients: [
+          "1 su bardağı badem sütü",
+          "2 yemek kaşığı chia tohumu",
+          "1 küçük yeşil elma",
+          "1 çay kaşığı tarçın",
+        ],
+        nutrition: {
+          protein: "8g",
+          carb: "25g",
+          fat: "5g",
+          calorie: "180 kcal",
+        },
+      },
+    ],
+  };
+  
+
+  
+  
+  
+  
   const [activeTab, setActiveTab] = useState('yemek'); // Active tab state
   const [searchQuery, setSearchQuery] = useState(''); // Search query state
   const [apiResults, setApiResults] = useState([]); // API results
@@ -12,7 +222,8 @@ const MealSearchPage = ({ mealType, onClose }) => {
   const [errorMessage, setErrorMessage] = useState(''); // Error message state
   const [mealGrams, setMealGrams] = useState({}); // Meal grams state
   const { userId } = useContext(UserContext);
-  
+  const mealRecipes = recipes[mealType] || [];
+
 
   const staticMeals = [
     { name: 'Yulaf Ezmesi', protein: 5, carb: 27, fat: 3, calorie: 150 },
@@ -22,23 +233,7 @@ const MealSearchPage = ({ mealType, onClose }) => {
     { name: 'Makarna', protein: 8, carb: 40, fat: 1, calorie: 220 },
   ];
 
-  const recipes = [
-    {
-      name: 'Sebzeli Omlet',
-      description: 'Sağlıklı ve doyurucu bir kahvaltı tarifi.',
-      ingredients: ['2 yumurta', '1 küçük biber', '2 dilim mantar', 'Bir avuç ıspanak'],
-    },
-    {
-      name: 'Avokadolu Sandviç',
-      description: 'Hızlı ve besleyici bir atıştırmalık.',
-      ingredients: ['1 avokado', '2 dilim tam tahıllı ekmek', '1 tutam tuz', 'Biraz limon suyu'],
-    },
-    {
-      name: 'Izgara Tavuk',
-      description: 'Lezzetli ve sağlıklı bir ana yemek.',
-      ingredients: ['200g tavuk göğsü', '1 yemek kaşığı zeytinyağı', 'Tuz, karabiber, kekik'],
-    },
-  ];
+  
 
   const handleSearch = async () => {
     setApiResults([]); // Clear previous results
@@ -255,24 +450,43 @@ const MealSearchPage = ({ mealType, onClose }) => {
 )}
 
 
-      {activeTab === 'tarifler' && (
-        <div className="recipe-section">
-          <h3>Tarifler</h3>
-          <div className="recipe-container">
-            {recipes.map((recipe, index) => (
-              <div key={index} className="recipe-card">
-                <h4>{recipe.name}</h4>
-                <p>{recipe.description}</p>
-                <ul>
-                  {recipe.ingredients.map((ingredient, idx) => (
-                    <li key={idx}>{ingredient}</li>
-                  ))}
-                </ul>
-              </div>
+{activeTab === "tarifler" && (
+  <div className="recipe-section">
+    {/* Sekme Başlığı */}
+    <h2 className="recipe-title">
+      {mealType.charAt(0).toUpperCase() + mealType.slice(1)} Tarifleri
+    </h2>
+    <div className="recipe-card-container">
+      {recipes[mealType]?.map((recipe, index) => (
+        <div key={index} className="recipe-card">
+          {/* Yemek İsmi */}
+          <h4 className="recipe-name">{recipe.name}</h4>
+          
+          {/* Yemek Açıklaması */}
+          <p className="recipe-description">{recipe.description}</p>
+          
+          {/* Malzemeler Listesi */}
+          <ul className="recipe-ingredients">
+            {recipe.ingredients.map((ingredient, idx) => (
+              <li key={idx} className="ingredient-item">
+                {ingredient}
+              </li>
             ))}
+          </ul>
+
+          {/* Besin Değerleri */}
+          <div className="recipe-nutrition">
+            <p><strong>Kalori:</strong> {recipe.nutrition.calorie} kcal</p>
+            <p><strong>Protein:</strong> {recipe.nutrition.protein} g</p>
+            <p><strong>Karbonhidrat:</strong> {recipe.nutrition.carb} g</p>
+            <p><strong>Yağ:</strong> {recipe.nutrition.fat} g</p>
           </div>
         </div>
-      )}
+      ))}
+    </div>
+  </div>
+)}
+
 
       {activeTab === 'enSonYenenler' && (
         <div className="recent-meals-section">
