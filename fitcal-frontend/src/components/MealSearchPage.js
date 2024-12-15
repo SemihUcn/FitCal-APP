@@ -56,7 +56,7 @@ const MealSearchPage = ({ mealType, onClose }) => {
       },
     ],
   
-    öğle: [
+    'öğle yemeği': [
       {
         name: "Izgara Tavuklu Kinoa Salatası",
         description: "Düşük yağlı, yüksek proteinli ve doyurucu bir öğle yemeği.",
@@ -106,7 +106,7 @@ const MealSearchPage = ({ mealType, onClose }) => {
       },
     ],
   
-    akşam: [
+    'akşam yemeği': [
       {
         name: "Fırında Somon ve Kuşkonmaz",
         description: "Omega-3 yağ asitleri bakımından zengin sağlıklı bir akşam yemeği.",

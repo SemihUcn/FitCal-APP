@@ -252,3 +252,18 @@
   padding-bottom: 60px; /* bottom-nav yüksekliğine göre ayarlayın */
 }
 
+/* Align Egzersizler button to the right */
+.exercise-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Align the button to the right */
+  align-items: center;
+}
+
+/* Align Su Seviyesi Ekleme button to the right */
+.water-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Align the button to the right */
+  align-items: center;
+}

@@ -169,19 +169,20 @@ const DailyPage = () => {
             </div>
           ))}
 
-          <div className="meal-section-horizontal">
-            <span className="meal-name">Egzersizler</span>
-            <button className="add-meal-button-horizontal" onClick={openExercisePage}>
-              +
-            </button>
-          </div>
+<div className="meal-section-horizontal exercise-section">
+  <span className="meal-name">Egzersizler</span>
+  <button className="add-meal-button-horizontal" onClick={openExercisePage}>
+    +
+  </button>
+</div>
 
-          <div className="meal-section-horizontal">
-            <span className="meal-name">Su Seviyesi Ekleme</span>
-            <button className="add-meal-button-horizontal" onClick={openWaterPage}>
-              +
-            </button>
-          </div>
+<div className="meal-section-horizontal water-section">
+  <span className="meal-name">Su Seviyesi Ekleme</span>
+  <button className="add-meal-button-horizontal" onClick={openWaterPage}>
+    +
+  </button>
+</div>
+
         </main>
       )}
 
