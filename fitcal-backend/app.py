@@ -1017,6 +1017,64 @@ def calculate_total_macros():
         connection.close()
 
 
+@app.route('/api/calculate_target_calories/<int:user_id>', methods=['GET'])
+def calculate_target_calories(user_id):
+    """
+    Calculate BMR and TDEE for the user based on profile details.
+    """
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            # Fetch user data
+            query = """
+                SELECT 
+                    u.weight, u.height, u.age, u.gender, 
+                    COALESCE(up.activity_level, 'Sedentary') AS activity_level
+                FROM users u
+                LEFT JOIN user_profiles up ON u.id = up.user_id
+                WHERE u.id = %s
+            """
+            cursor.execute(query, (user_id,))
+            user = cursor.fetchone()
+
+            if not user:
+                return jsonify({"error": "User not found"}), 404
+
+            # Validate data
+            weight = user["weight"]
+            height = user["height"]
+            age = user["age"]
+            gender = user["gender"]
+            activity_level = user["activity_level"]
+
+            if not all([weight, height, age, gender]):
+                return jsonify({"error": "Incomplete user data"}), 400
+
+            # BMR calculation (Mifflin-St Jeor)
+            if gender.lower() == 'male':
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5
+            else:
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161
+
+            # TDEE calculation based on activity level
+            activity_multipliers = {
+                "Sedentary": 1.2,
+                "Lightly active": 1.375,
+                "Moderately active": 1.55,
+                "Very active": 1.725,
+                "Extra active": 1.9
+            }
+            tdee = bmr * activity_multipliers.get(activity_level, 1.2)
+
+            return jsonify({
+                "bmr": round(bmr, 2),
+                "tdee": round(tdee, 2)
+            }), 200
+    except Exception as e:
+        logging.error(f"Error calculating target calories: {e}")
+        return jsonify({"error": "Server error", "details": str(e)}), 500
+    finally:
+        connection.close()
 
 
 

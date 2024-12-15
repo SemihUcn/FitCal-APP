@@ -14,10 +14,21 @@ const ReportPage = () => {
   const [macroData, setMacroData] = useState(null);
   const [macroError, setMacroError] = useState('');
   const [totalMacros, setTotalMacros] = useState(null);
+  const [targetCalories, setTargetCalories] = useState(null);
 
-
+  const fetchTargetCalories = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/calculate_target_calories/${userId}`);
+      if (!response.ok) throw new Error('Hedef kalori alınırken bir hata oluştu.');
+      const data = await response.json();
+      setTargetCalories(data.tdee);
+    } catch (err) {
+      console.error("Target calorie fetch error:", err);
+    }
+  };
+  
   // Fetch Calorie Summary
-  const fetchCalorieSummary = async () => {
+   const fetchCalorieSummary = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/calorie_summary/${userId}`);
       if (!response.ok) throw new Error('Veri alınırken bir hata oluştu.');
@@ -62,6 +73,7 @@ const ReportPage = () => {
 
   // Trigger API calls based on the active section
   useEffect(() => {
+    fetchTargetCalories();
     if (activeSection === "kaloriler") {
       fetchCalorieSummary();
     } else if (activeSection === "makrolar") {
@@ -99,7 +111,7 @@ const ReportPage = () => {
               <>
                 <div className="calorie-overview">
                   <p className="calorie-text">
-                    Günlük Toplam: {totalCalories} kcal | Hedef: 2900 kcal
+                    Günlük Toplam: {totalCalories} kcal | Hedef: {targetCalories || 'Hedef belirlenmedi'} kcal
                   </p>
                   <div
                     className="calorie-chart"
@@ -215,8 +227,8 @@ const ReportPage = () => {
                         <table className="nutrition-table">
                             <thead>
                                 <tr>
-                                    <th>Besin</th>
-                                    <th>Toplam</th>
+                                    <th>Besinler</th>
+                                    <th>Toplam Gramaj ve Kalori</th>
                                 </tr>
                             </thead>
                             <tbody>
