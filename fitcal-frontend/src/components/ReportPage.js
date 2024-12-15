@@ -13,6 +13,8 @@ const ReportPage = () => {
   const [calorieError, setCalorieError] = useState('');
   const [macroData, setMacroData] = useState(null);
   const [macroError, setMacroError] = useState('');
+  const [totalMacros, setTotalMacros] = useState(null);
+
 
   // Fetch Calorie Summary
   const fetchCalorieSummary = async () => {
@@ -28,6 +30,24 @@ const ReportPage = () => {
     }
   };
 
+  const fetchTotalMacros = async () => {
+    try {
+        const response = await fetch(`http://localhost:5000/api/total_macros`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_id: userId }),
+        });
+        if (!response.ok) throw new Error("Error fetching total macros.");
+        const data = await response.json();
+        setTotalMacros(data);
+    } catch (err) {
+        setMacroError(err.message);
+    }
+};
+
+
   // Fetch Macro Summary
   const fetchMacroSummary = async () => {
     try {
@@ -42,13 +62,15 @@ const ReportPage = () => {
 
   // Trigger API calls based on the active section
   useEffect(() => {
-    if (activeSection === 'kaloriler') {
+    if (activeSection === "kaloriler") {
       fetchCalorieSummary();
-    } else if (activeSection === 'makrolar') {
+    } else if (activeSection === "makrolar") {
       fetchMacroSummary();
+    } else if (activeSection === "besinler") {
+      fetchTotalMacros();
     }
   }, [activeSection]);
-
+  
   // Render the active section
   const renderSection = () => {
     switch (activeSection) {
@@ -68,7 +90,7 @@ const ReportPage = () => {
             },
           ],
         };
-      
+
         return (
           <div className="report-content">
             <h2 className="section-title">Kaloriler</h2>
@@ -99,12 +121,19 @@ const ReportPage = () => {
                       }}
                     />
                   </div>
-      
+
                   <ul className="meal-summary">
-                    {calorieData.map((meal) => (
-                      <li key={meal.meal_type}>
-                        <span className={`meal-color ${meal.meal_type}`}></span>
-                        {meal.meal_type} ({meal.percentage}%) - {meal.calories} kcal
+                    {calorieData.map((meal, index) => (
+                      <li key={meal.meal_type} className="meal-summary-item">
+                        <span
+                          className="color-box"
+                          style={{
+                            backgroundColor:
+                              chartData.datasets[0].backgroundColor[index],
+                          }}
+                        ></span>
+                        {meal.meal_type} ({meal.percentage}%) - {meal.calories}{" "}
+                        kcal
                       </li>
                     ))}
                   </ul>
@@ -113,81 +142,107 @@ const ReportPage = () => {
             )}
           </div>
         );
-      
 
-        case 'makrolar':
-          return (
-            <div className="report-content">
-              <h2 className="section-title">Makrolar</h2>
-              {macroError && <p className="error-message">{macroError}</p>}
-              {macroData && (
-                <>
-                  <div className="macro-chart">
-                    <div className="chart-placeholder">Makro Grafiği Burada</div>
-                  </div>
-                  <ul className="macro-summary">
-                    <li>
-                      <span className="macro-color carbs"></span>
-                      Karbonhidrat: {macroData.carbs.consumed.toFixed(2)}  %
-                    </li>
-                    <li>
-                      <span className="macro-color fats"></span>
-                      Yağ: {macroData.fats.consumed.toFixed(2)}  %
-                    </li>
-                    <li>
-                      <span className="macro-color proteins"></span>
-                      Protein: {macroData.proteins.consumed.toFixed(2)} %
-                    </li>
-                  </ul>
-                </>
-              )}
-            </div>
-          );
-        
+      case "makrolar":
+        const macroChartData = macroData
+          ? {
+              labels: ["Karbonhidrat", "Yağ", "Protein"],
+              datasets: [
+                {
+                  data: [
+                    macroData.carbs.consumed,
+                    macroData.fats.consumed,
+                    macroData.proteins.consumed,
+                  ],
+                  backgroundColor: ["#FFCE56", "#FF6384", "#36A2EB"],
+                  hoverBackgroundColor: ["#FFCE56", "#FF6384", "#36A2EB"],
+                },
+              ],
+            }
+          : null;
 
-      case 'besinler':
         return (
           <div className="report-content">
-            <h2 className="section-title">Besinler</h2>
-            <table className="nutrition-table">
-              <thead>
-                <tr>
-                  <th>Besin</th>
-                  <th>Toplam</th>
-                  <th>Hedef</th>
-                  <th>+/-</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Kaloriler (kcal)</td>
-                  <td>{totalCalories}</td>
-                  <td>20300</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>Protein (g)</td>
-                  <td>-</td>
-                  <td>700</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>Karbonhidrat (g)</td>
-                  <td>-</td>
-                  <td>1750</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>Yağ (g)</td>
-                  <td>-</td>
-                  <td>469</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
+            <h2 className="section-title">Makrolar</h2>
+            {macroError && <p className="error-message">{macroError}</p>}
+            {macroData && (
+              <>
+                <p className="calorie-text">Günlük Toplam Makro Yüzdesi</p>
+                <div
+                  className="macro-chart"
+                  style={{
+                    width: "300px",
+                    height: "300px",
+                    margin: "0 auto",
+                  }}
+                >
+                  <Doughnut
+                    data={macroChartData}
+                    options={{
+                      maintainAspectRatio: false,
+                      plugins: {
+                        legend: {
+                          position: "bottom",
+                        },
+                      },
+                    }}
+                  />
+                </div>
+                <ul className="macro-summary">
+                  <li>
+                    <span className="macro-color carbs"></span>
+                    Karbonhidrat: {macroData.carbs.consumed.toFixed(2)} %
+                  </li>
+                  <li>
+                    <span className="macro-color fats"></span>
+                    Yağ: {macroData.fats.consumed.toFixed(2)} %
+                  </li>
+                  <li>
+                    <span className="macro-color proteins"></span>
+                    Protein: {macroData.proteins.consumed.toFixed(2)} %
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
         );
-
+          case "besinler":
+            return (
+                <div className="report-content">
+                    <h2 className="section-title">Besinler</h2>
+                    {macroError && <p className="error-message">{macroError}</p>}
+                    {totalMacros && (
+                        <table className="nutrition-table">
+                            <thead>
+                                <tr>
+                                    <th>Besin</th>
+                                    <th>Toplam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Kaloriler (kcal)</td>
+                                    <td>{totalMacros.total_calories.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Protein (g)</td>
+                                    <td>{totalMacros.total_protein.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Karbonhidrat (g)</td>
+                                    <td>{totalMacros.total_carbs.toFixed(2)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Yağ (g)</td>
+                                    <td>{totalMacros.total_fat.toFixed(2)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    )}
+                </div>
+            );
+        
+          
       default:
         return <p className="report-text">Bir kategori seçerek detayları görüntüleyin.</p>;
     }

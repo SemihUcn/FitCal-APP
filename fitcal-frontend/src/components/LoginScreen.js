@@ -25,15 +25,15 @@ const LoginScreen = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'Daily':
+      case 'Günlük Takip':
         return <DailyPage />;
-      case 'Report':
+      case 'Raporlar':
         return <ReportPage />;
-      case 'add':
+      case 'Diyet Planı':
         return <AddPage />;
-      case 'Community':
+      case 'Topluluk':
         return <CommunityPage />;
-      case 'Profile':
+      case 'Profil':
         return <ProfilePage />;
       default:
         return <DailyPage />;
@@ -193,7 +193,7 @@ const LoginScreen = () => {
   
   const renderBottomNav = () => (
     <div className="bottom-nav">
-      {['Daily', 'Report', 'add', 'Community', 'Profile'].map((page) => (
+      {['Günlük Takip', 'Raporlar', 'Diyet Planı', 'Topluluk', 'Profil'].map((page) => (
         <button
           key={page}
           onClick={() => setCurrentPage(page)} // Doğru sayfa durumunu ayarla

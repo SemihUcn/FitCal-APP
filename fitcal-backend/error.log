@@ -1953,3 +1953,81 @@
 2024-12-15 02:56:49,296 - INFO - 127.0.0.1 - - [15/Dec/2024 02:56:49] "GET /api/macro_summary/5 HTTP/1.1" 200 -
 2024-12-15 02:56:59,584 - INFO - 127.0.0.1 - - [15/Dec/2024 02:56:59] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
 2024-12-15 02:57:03,245 - INFO - 127.0.0.1 - - [15/Dec/2024 02:57:03] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:58:21,039 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 02:58:21,039 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 02:58:29,296 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:29] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 02:58:29,740 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:29] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 02:58:29,743 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:29] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:58:30,068 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:30] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 02:58:32,195 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:32] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:58:33,935 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:33] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:58:34,603 - INFO - 127.0.0.1 - - [15/Dec/2024 02:58:34] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:59:16,003 - INFO - 127.0.0.1 - - [15/Dec/2024 02:59:16] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:59:27,889 - INFO - 127.0.0.1 - - [15/Dec/2024 02:59:27] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 02:59:28,961 - INFO - 127.0.0.1 - - [15/Dec/2024 02:59:28] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:00:02,488 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:02] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:00:02,975 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:02] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:00:03,054 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:03] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:00:03,304 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:03] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:00:05,552 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:05] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:00:44,411 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:44] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:00:46,021 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:46] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:00:57,818 - INFO - 127.0.0.1 - - [15/Dec/2024 03:00:57] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:08:39,313 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:39] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:08:39,742 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:39] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:08:39,745 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:39] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:08:40,069 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:40] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:08:42,021 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:42] "GET /api/comments HTTP/1.1" 200 -
+2024-12-15 03:08:42,334 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:42] "GET /api/comments HTTP/1.1" 200 -
+2024-12-15 03:08:44,804 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:44] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:08:49,206 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:49] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:08:51,232 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:51] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:08:53,105 - INFO - 127.0.0.1 - - [15/Dec/2024 03:08:53] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:09:00,641 - INFO - 127.0.0.1 - - [15/Dec/2024 03:09:00] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:09:01,698 - INFO - 127.0.0.1 - - [15/Dec/2024 03:09:01] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:10:45,868 - INFO - 127.0.0.1 - - [15/Dec/2024 03:10:45] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:10:46,130 - INFO - 127.0.0.1 - - [15/Dec/2024 03:10:46] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:15:11,457 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 03:15:11,457 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 03:15:23,206 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:23] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:15:23,643 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:23] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:15:23,647 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:23] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:15:23,981 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:23] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:15:44,427 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:44] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:15:45,405 - INFO - 127.0.0.1 - - [15/Dec/2024 03:15:45] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:22:53,689 - INFO - 127.0.0.1 - - [15/Dec/2024 03:22:53] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:24:17,745 - INFO - 127.0.0.1 - - [15/Dec/2024 03:24:17] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:24:47,130 - INFO - 127.0.0.1 - - [15/Dec/2024 03:24:47] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:24:49,490 - INFO - 127.0.0.1 - - [15/Dec/2024 03:24:49] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:26:01,886 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 03:26:01,886 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 03:26:11,877 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:11] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:26:12,308 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:12] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:26:12,311 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:12] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:26:12,630 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:12] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:26:15,967 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:15] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:26:40,023 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-15 03:26:40,023 - INFO - [33mPress CTRL+C to quit[0m
+2024-12-15 03:26:42,485 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:42] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:26:42,908 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:42] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:26:42,913 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:42] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:26:43,244 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:43] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:26:46,355 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:46] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:26:47,553 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:47] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:26:48,662 - INFO - 127.0.0.1 - - [15/Dec/2024 03:26:48] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:34:18,082 - INFO - 127.0.0.1 - - [15/Dec/2024 03:34:18] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:34:18,533 - INFO - 127.0.0.1 - - [15/Dec/2024 03:34:18] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:34:18,536 - INFO - 127.0.0.1 - - [15/Dec/2024 03:34:18] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:34:18,844 - INFO - 127.0.0.1 - - [15/Dec/2024 03:34:18] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:34:22,567 - INFO - 127.0.0.1 - - [15/Dec/2024 03:34:22] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:35:47,708 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:47] "OPTIONS /api/login HTTP/1.1" 200 -
+2024-12-15 03:35:48,153 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:48] "POST /api/login HTTP/1.1" 200 -
+2024-12-15 03:35:48,156 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:48] "OPTIONS /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:35:48,488 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:48] "POST /api/check_profile HTTP/1.1" 200 -
+2024-12-15 03:35:51,168 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:51] "GET /api/macro_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:35:52,374 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:52] "GET /api/calorie_summary/5 HTTP/1.1" 200 -
+2024-12-15 03:35:54,447 - INFO - 127.0.0.1 - - [15/Dec/2024 03:35:54] "GET /api/macro_summary/5 HTTP/1.1" 200 -

@@ -978,6 +978,46 @@ def macro_summary(user_id):
     finally:
         connection.close()
 
+@app.route('/api/total_macros', methods=['POST'])
+def calculate_total_macros():
+    """
+    Calculate total protein, carbs, fat, and calories for the user.
+    """
+    data = request.json
+    user_id = data.get('user_id')
+
+    if not user_id:
+        return jsonify({"error": "User ID is required"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = """
+                SELECT 
+                    SUM(protein) AS total_protein,
+                    SUM(carbs) AS total_carbs,
+                    SUM(fat) AS total_fat,
+                    SUM(calories) AS total_calories
+                FROM user_meals
+                WHERE user_id = %s
+            """
+            cursor.execute(query, (user_id,))
+            result = cursor.fetchone()
+
+            return jsonify({
+                "total_protein": result['total_protein'] or 0,
+                "total_carbs": result['total_carbs'] or 0,
+                "total_fat": result['total_fat'] or 0,
+                "total_calories": result['total_calories'] or 0
+            }), 200
+    except Exception as e:
+        logging.error(f"Error calculating total macros: {e}")
+        return jsonify({"error": "Server error", "details": str(e)}), 500
+    finally:
+        connection.close()
+
+
+
 
 
 
