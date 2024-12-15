@@ -1076,6 +1076,35 @@ def calculate_target_calories(user_id):
     finally:
         connection.close()
 
+@app.route('/api/get_meals_by_type', methods=['POST'])
+def get_meals_by_type():
+    data = request.json
+    user_id = data.get("user_id")
+    meal_type = data.get("meal_type")
+
+    if not user_id or not meal_type:
+        return jsonify({"error": "Kullanıcı ID ve öğün türü gereklidir"}), 400
+
+    try:
+        connection = get_db_connection()
+        with connection.cursor() as cursor:
+            query = """
+                SELECT food_name, calories, protein, carbs, fat
+                FROM user_meals
+                WHERE user_id = %s AND meal_type = %s
+                ORDER BY created_at DESC
+            """
+            cursor.execute(query, (user_id, meal_type))
+            meals = cursor.fetchall()
+
+        return jsonify({"meals": meals}), 200
+
+    except Exception as e:
+        logging.error(f"Veritabanı hatası: {str(e)}")
+        return jsonify({"error": "Sunucu hatası"}), 500
+    finally:
+        connection.close()
+
 
 
 

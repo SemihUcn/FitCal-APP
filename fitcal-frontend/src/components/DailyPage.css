@@ -8,20 +8,22 @@
   flex-direction: column;
 }
 
-/* Öğünler tam genişlikte uzansın */
 .meal-section-horizontal {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin: 10px 0;
-  width: calc(100% - 40px); /* Sol ve sağ boşluk bırak */
-  margin-left: 0;
-  margin-right: auto;
-  max-width: 100%; /* Tüm genişliği kapla */
+  width: 100%;
+}
+
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .meal-name {
@@ -42,7 +44,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -51,19 +52,59 @@
   transform: scale(1.1);
 }
 
+/* Eklenen yiyeceklerin listesi */
+.meal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meal-item {
+  background-color: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+  transition: background-color 0.3s ease;
+}
+
+.meal-item:nth-child(even) {
+  background-color: #eef5ff; /* Alternatif renk */
+}
+
+.meal-item .calories {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.no-meal-message {
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+  margin: 15px 0;
+  font-style: italic;
+}
+
 .bottom-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  bottom: 0;
+  position: fixed; /* Her zaman sayfanın altında sabit kalır */
+  bottom: 0; /* Sayfanın en altına sabitler */
   left: 0;
-  width: 100%;
+  width: 100%; /* Genişlik tamamen sayfanın genişliğine eşit */
   background-color: #ffffff;
   border-top: 2px solid #ddd;
   padding: 10px 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100; /* Üstte görünmesini sağlar */
 }
+
 
 .nav-button {
   flex: 1;
@@ -75,24 +116,17 @@
   padding: 15px 0;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  border-right: 1px solid #ddd;
 }
 
 .nav-button:last-child {
   border-right: none;
 }
 
-.nav-button.active {
-  background-color: #0056b3;
-  color: white;
-  font-weight: bold;
-}
-
 .nav-button:hover {
   background-color: #0056b3;
   color: white;
 }
-/* Takvim Butonu */
+
 .calendar-button {
   position: absolute;
   top: 20px;
@@ -108,51 +142,6 @@
   transform: scale(1.2);
 }
 
-/* Takvim Popup */
-.calendar-popup {
-  position: absolute;
-  top: 60px;
-  right: 30px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-
-.calendar-input {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 5px;
-  font-size: 1rem;
-  outline: none;
-  cursor: pointer;
-  width: 100%;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.calendar-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-/* Takvim Butonu */
-.calendar-button {
-  position: absolute;
-  top: 100px; /* En sağ üstte, orijinal konumu */
-  right: 30px;
-  background-color: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.calendar-button:hover {
-  transform: scale(1.2);
-}
-
-/* Takvim Popup */
 .calendar-overlay {
   position: fixed;
   top: 0;
@@ -201,4 +190,65 @@
   font-weight: normal;
 }
 
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+  .meal-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meal-item .calories {
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+
+  .add-meal-button-horizontal {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .nav-button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
+
+/* Kalori İlerleme Çubuğu */
+.calorie-progress-container {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f1f3f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calorie-progress-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.calorie-progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.calorie-progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  text-align: center;
+  line-height: 20px;
+  font-size: 0.9rem;
+  color: white;
+  transition: width 0.5s ease-in-out;
+}
+
+.daily-page {
+  padding-bottom: 60px; /* bottom-nav yüksekliğine göre ayarlayın */
+}
 
